@@ -11,6 +11,6 @@ class GameTest {
         Game instance = new Game();
         assertEquals("win", instance.scoreGame("rock", "scissors"));
         assertEquals("lose", instance.scoreGame("paper", "scissors"));
-        assertEquals("tie", instance.scoreGame("rock", "paper"));
+        assertEquals("tie", instance.scoreGame("rock", "rock"));
     }
 }
