@@ -13,23 +13,23 @@ public class Game {
         return "lose"; // only option left, given that userMove and compMove can only be rock, paper, or scissors
     }
 
-    public int[] incrementScoreGame(String gameState, int[] scores) {
+    public int[] incrementScoreGame(String gameState, int[] gameScores) {
         if (gameState.equals("win")) {
-            scores[0]++;
+            gameScores[0]++;
         } else if (gameState.equals("lose")) {
-            scores[1]++;
+            gameScores[1]++;
         } else if (gameState.equals("tie")) {
-            scores[2]++;
+            gameScores[2]++;
         }
-        return scores;
+        return gameScores;
     }
 
     public String getMessagePlayerMoves(String userMove, String compMove) {
         return String.format("User: %1$s\nComp: %2$s\n", userMove, compMove);
     }
 
-    public String getMessageScoreGame(int[] scores) {
+    public String getMessageScoreGame(int[] gameScores) {
         return String.format("Thank you for playing!\nWins: %1$s\nLoses: %2$s\nTies: %3$s",
-                             scores[0], scores[1], scores[2]);
+                             gameScores[0], gameScores[1], gameScores[2]);
     }
 }
