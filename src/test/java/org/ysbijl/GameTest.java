@@ -7,10 +7,10 @@ import static org.junit.jupiter.api.Assertions.*;
 class GameTest {
 
     @Test
-    void scoreGame() {
+    void determineOutcomeGame() {
         Game instance = new Game();
-        assertEquals("win", instance.scoreGame("rock", "scissors"));
-        assertEquals("lose", instance.scoreGame("paper", "scissors"));
-        assertEquals("tie", instance.scoreGame("rock", "rock"));
+        assertEquals("win", instance.determineOutcomeGame("rock", "scissors"));
+        assertEquals("lose", instance.determineOutcomeGame("paper", "scissors"));
+        assertEquals("tie", instance.determineOutcomeGame("rock", "rock"));
     }
 }
