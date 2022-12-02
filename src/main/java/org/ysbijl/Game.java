@@ -14,6 +14,13 @@ public class Game {
     }
 
     public int[] incrementScoreGame(String gameState, int[] scores) {
+        if (gameState.equals("win")) {
+            scores[0]++;
+        } else if (gameState.equals("lose")) {
+            scores[1]++;
+        } else { // Can only be "tie"
+            scores[2]++;
+        }
         return scores;
     }
 }
