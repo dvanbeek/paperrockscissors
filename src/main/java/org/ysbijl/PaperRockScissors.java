@@ -1,8 +1,5 @@
 package org.ysbijl;
 
-import java.util.Arrays;
-import java.util.Scanner;
-
 public class PaperRockScissors {
     public static void main(String[] args) {
         final String[] choices = new String[] {"rock", "paper", "scissors"};
