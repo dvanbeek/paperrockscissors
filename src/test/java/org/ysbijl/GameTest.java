@@ -13,4 +13,12 @@ class GameTest {
         assertEquals("lose", instance.determineOutcomeGame("paper", "scissors"));
         assertEquals("tie", instance.determineOutcomeGame("rock", "rock"));
     }
+
+    @Test
+    void incrementScoreGame() {
+        Game instance = new Game();
+        assertArrayEquals(new int[] {1, 0, 0}, instance.incrementScoreGame("win", new int[] {0, 0, 0}));
+        assertArrayEquals(new int[] {1, 1, 0}, instance.incrementScoreGame("lose", new int[] {1, 0, 0}));
+        assertArrayEquals(new int[] {1, 1, 3}, instance.incrementScoreGame("tie", new int[] {1, 1, 2}));
+    }
 }

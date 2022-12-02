@@ -12,4 +12,8 @@ public class Game {
         }
         return "lose";
     }
+
+    public int[] incrementScoreGame(String gameState, int[] scores) {
+        return scores;
+    }
 }
