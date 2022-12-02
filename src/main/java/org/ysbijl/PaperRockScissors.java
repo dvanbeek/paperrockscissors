@@ -28,7 +28,7 @@ public class PaperRockScissors {
         String userChoice = "";
         while (!(Arrays.asList(options).contains(userChoice))) {
             System.out.println("Will you continue playing? (yes/no)");
-            userChoice = userInput.nextLine();
+            userChoice = userInput.nextLine().toLowerCase();
         }
         return userChoice.equals("yes");
     }

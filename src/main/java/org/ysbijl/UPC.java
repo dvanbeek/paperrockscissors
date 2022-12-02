@@ -10,7 +10,7 @@ public class UPC extends Player {
         String userMove= "";
         while (!(Arrays.asList(options).contains(userMove))) {
             System.out.println("What move will you make? (rock/paper/scissors)");
-            userMove = userInput.nextLine();
+            userMove = userInput.nextLine().toLowerCase();
         }
         return userMove;
     }
