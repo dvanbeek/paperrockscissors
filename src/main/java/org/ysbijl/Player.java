@@ -1,7 +1,5 @@
 package org.ysbijl;
 
-
-
 public class Player {
     String move;
 
