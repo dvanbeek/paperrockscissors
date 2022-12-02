@@ -5,7 +5,7 @@ public class PaperRockScissors {
         final String[] choices = new String[] {"rock", "paper", "scissors"};
 
         Player user = new Player();
-        Player comp = new Player();
+        NPC comp = new NPC();
 
         user.setMove("rock");
         comp.setMove(comp.selectRandomMove(choices));
