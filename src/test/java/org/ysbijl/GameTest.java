@@ -21,4 +21,13 @@ class GameTest {
         assertArrayEquals(new int[] {1, 1, 0}, instance.incrementScoreGame("lose", new int[] {1, 0, 0}));
         assertArrayEquals(new int[] {1, 1, 3}, instance.incrementScoreGame("tie", new int[] {1, 1, 2}));
     }
+
+    @Test
+    void getMessageScoreGame() {
+        Game instance = new Game();
+        assertEquals("Thank you for playing!\nWins: 0\nLoses: 0\nTies: 0",
+                     instance.getMessageScoreGame(new int[] {0, 0, 0}));
+        assertEquals("Thank you for playing!\nWins: 1\nLoses: 1\nTies: 2",
+                     instance.getMessageScoreGame(new int[] {1, 1, 2}));
+    }
 }

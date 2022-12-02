@@ -23,4 +23,9 @@ public class Game {
         }
         return scores;
     }
+
+    public String getMessageScoreGame(int[] scores) {
+        return String.format("Thank you for playing!\nWins: %1$s\nLoses: %2$s\nTies: %3$s",
+                             scores[0], scores[1], scores[2]);
+    }
 }

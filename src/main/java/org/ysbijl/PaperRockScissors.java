@@ -20,5 +20,6 @@ public class PaperRockScissors {
 
             keepPlaying = user.askUserChoice(playing, "Will you continue playing? (yes/no)").equals("yes");
         }
+        System.out.print(prsGame.getMessageScoreGame(scores));
     }
 }
