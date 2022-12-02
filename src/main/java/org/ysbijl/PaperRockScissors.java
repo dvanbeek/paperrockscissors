@@ -6,7 +6,7 @@ public class PaperRockScissors {
         final String[] playing = new String[] {"yes", "no"};
 
         boolean keepPlaying = true;
-        int[] scores = new int[] {0, 0, 0};
+        int[] scores = new int[] {0, 0, 0}; // Wins, Loses, Ties from user perspective
         Game prsGame = new Game();
         UPC user = new UPC();
         NPC comp = new NPC();
