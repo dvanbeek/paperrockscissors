@@ -6,12 +6,12 @@ import java.util.Scanner;
 public class UPC extends Player {
     Scanner userInput = new Scanner(System.in);
 
-    public String askUserMove(String[] options) {
-        String userMove= "";
-        while (!(Arrays.asList(options).contains(userMove))) {
-            System.out.println("What move will you make? (rock/paper/scissors)");
-            userMove = userInput.nextLine().toLowerCase();
+    public String askUserChoice(String[] options, String question) {
+        String userChoice= "";
+        while (!(Arrays.asList(options).contains(userChoice))) {
+            System.out.println(question);
+            userChoice = userInput.nextLine().toLowerCase();
         }
-        return userMove;
+        return userChoice;
     }
 }

@@ -13,23 +13,13 @@ public class PaperRockScissors {
         NPC comp = new NPC();
 
         while (keepPlaying) {
-            user.setMove(user.askUserMove(choices));
+            user.setMove(user.askUserChoice(choices, "What move will you make? (rock/paper/scissors)"));
             comp.setMove(comp.selectRandomMove(choices));
 
             Game singleGame = new Game();
             String state = singleGame.scoreGame(user.getMove(), comp.getMove());
 
-            keepPlaying = askUserToKeepPlaying(playing);
+            keepPlaying = user.askUserChoice(playing, "Will you continue playing? (yes/no)").equals("yes");
         }
-    }
-
-    private static boolean askUserToKeepPlaying(String[] options) {
-        Scanner userInput = new Scanner(System.in);
-        String userChoice = "";
-        while (!(Arrays.asList(options).contains(userChoice))) {
-            System.out.println("Will you continue playing? (yes/no)");
-            userChoice = userInput.nextLine().toLowerCase();
-        }
-        return userChoice.equals("yes");
     }
 }
