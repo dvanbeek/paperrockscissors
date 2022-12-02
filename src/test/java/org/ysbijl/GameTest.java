@@ -25,8 +25,8 @@ class GameTest {
     @Test
     void getMessagePlayerMoves() {
         Game instance = new Game();
-        assertEquals("User: rock\nComp: scissors", instance.getMessagePlayerMoves("rock", "scissors"));
-        assertEquals("User: paper\nComp: paper", instance.getMessagePlayerMoves("paper", "paper"));
+        assertEquals("User: rock\nComp: scissors\n", instance.getMessagePlayerMoves("rock", "scissors"));
+        assertEquals("User: paper\nComp: paper\n", instance.getMessagePlayerMoves("paper", "paper"));
     }
 
     @Test

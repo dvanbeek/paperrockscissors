@@ -25,7 +25,7 @@ public class Game {
     }
 
     public String getMessagePlayerMoves(String userMove, String compMove) {
-        return String.format("User: %1$s\nComp: %2$s", userMove, compMove);
+        return String.format("User: %1$s\nComp: %2$s\n", userMove, compMove);
     }
 
     public String getMessageScoreGame(int[] scores) {
