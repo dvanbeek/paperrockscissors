@@ -9,6 +9,7 @@ public class PaperRockScissors {
         final String[] playing = new String[] {"yes", "no"};
 
         boolean keepPlaying = true;
+        Game prsGame = new Game();
         UPC user = new UPC();
         NPC comp = new NPC();
 
@@ -16,8 +17,7 @@ public class PaperRockScissors {
             user.setMove(user.askUserChoice(choices, "What move will you make? (rock/paper/scissors)"));
             comp.setMove(comp.selectRandomMove(choices));
 
-            Game singleGame = new Game();
-            String state = singleGame.scoreGame(user.getMove(), comp.getMove());
+            String state = prsGame.scoreGame(user.getMove(), comp.getMove());
 
             keepPlaying = user.askUserChoice(playing, "Will you continue playing? (yes/no)").equals("yes");
         }
