@@ -24,6 +24,10 @@ public class Game {
         return scores;
     }
 
+    public String getMessagePlayerMoves(String userMove, String compMove) {
+        return String.format("User: %1$s\nComp: %2$s", userMove, compMove);
+    }
+
     public String getMessageScoreGame(int[] scores) {
         return String.format("Thank you for playing!\nWins: %1$s\nLoses: %2$s\nTies: %3$s",
                              scores[0], scores[1], scores[2]);

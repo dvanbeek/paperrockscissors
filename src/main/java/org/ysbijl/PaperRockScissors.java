@@ -15,6 +15,7 @@ public class PaperRockScissors {
             user.setMove(user.askUserChoice(choices, "What move will you make? (rock/paper/scissors)"));
             comp.setMove(comp.selectRandomMove(choices));
 
+            System.out.print(prsGame.getMessagePlayerMoves(user.getMove(), comp.getMove()));
             String state = prsGame.determineOutcomeGame(user.getMove(), comp.getMove());
             scores = prsGame.incrementScoreGame(state, scores);
 

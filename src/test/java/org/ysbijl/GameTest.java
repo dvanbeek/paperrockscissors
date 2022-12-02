@@ -23,6 +23,13 @@ class GameTest {
     }
 
     @Test
+    void getMessagePlayerMoves() {
+        Game instance = new Game();
+        assertEquals("User: rock\nComp: scissors", instance.getMessagePlayerMoves("rock", "scissors"));
+        assertEquals("User: paper\nComp: paper", instance.getMessagePlayerMoves("paper", "paper"));
+    }
+
+    @Test
     void getMessageScoreGame() {
         Game instance = new Game();
         assertEquals("Thank you for playing!\nWins: 0\nLoses: 0\nTies: 0",
