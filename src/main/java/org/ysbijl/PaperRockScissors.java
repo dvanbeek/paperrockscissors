@@ -4,10 +4,10 @@ public class PaperRockScissors {
     public static void main(String[] args) {
         final String[] choices = new String[] {"rock", "paper", "scissors"};
 
-        Player user = new Player();
+        UPC user = new UPC();
         NPC comp = new NPC();
 
-        user.setMove("rock");
+        user.setMove(user.askUserMove(choices));
         comp.setMove(comp.selectRandomMove(choices));
 
         Game singleGame = new Game();
