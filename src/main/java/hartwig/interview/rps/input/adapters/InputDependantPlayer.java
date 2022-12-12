@@ -7,14 +7,20 @@ import hartwig.interview.rps.input.HandDomainMapper;
 import hartwig.interview.rps.input.interfaces.Reader;
 import org.springframework.beans.factory.annotation.Autowired;
 
+import java.util.Scanner;
+
 /**
  * Represents an input dependant player
  * This player requires a human invoked input in order to continue
  * Input type is left open to more concrete implementations
  */
 public abstract class InputDependantPlayer implements Player {
-    @Autowired
     protected Reader reader;
+
+    @Autowired
+    public InputDependantPlayer(Reader reader){
+        this.reader = reader;
+    }
 
     /**
      * @return OpenHand which is specifies by a user
