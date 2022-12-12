@@ -1,0 +1,11 @@
+hartwig/interview/rps/domain/rules/RockTest.class
+hartwig/interview/rps/input/ComputerPlayerTest.class
+hartwig/interview/rps/domain/scores/model/PlayerScoreTest.class
+hartwig/interview/rps/domain/rules/PaperTest.class
+hartwig/interview/rps/input/HandDomainMapperTest.class
+hartwig/interview/rps/domain/rules/ScissorsTest.class
+hartwig/interview/rps/domain/rules/GoFactoryTest.class
+hartwig/interview/rps/domain/rules/RefereeTest.class
+hartwig/interview/rps/RpsApplicationTests.class
+hartwig/interview/rps/domain/scores/model/GameScoreTest.class
+hartwig/interview/rps/input/InputReaderTest.class

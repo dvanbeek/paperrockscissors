@@ -1,0 +1,4 @@
+-------------------------------------------------------------------------------
+Test set: hartwig.interview.rps.RpsApplicationTests
+-------------------------------------------------------------------------------
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.011 s - in hartwig.interview.rps.RpsApplicationTests
