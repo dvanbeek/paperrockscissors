@@ -35,10 +35,13 @@ public class RPSApplication implements CommandLineRunner{
 			CLIMessage.info("Do you want to play another round? Y/N");
 			var continueGame = scanner.next();
 
-			if(!continueGame.equalsIgnoreCase("y") && !continueGame.equalsIgnoreCase("n"))
+			if(!continueGame.equalsIgnoreCase("y") && !continueGame.equalsIgnoreCase("n")) {
 				CLIMessage.info("Plese enter Y or N to continue.");
-			else if(continueGame.equalsIgnoreCase("n"))
+				continueGame = scanner.next();
+			}
+			else if(continueGame.equalsIgnoreCase("n")) {
 				break;
+			}
 		}
 		var score = gameManager.endGame();
 		var playerModeScore = score.getPlayerScore(playerMode.toString());
