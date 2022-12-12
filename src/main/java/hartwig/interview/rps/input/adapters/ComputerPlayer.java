@@ -6,6 +6,7 @@ import hartwig.interview.rps.domain.rules.OpenHand;
 import hartwig.interview.rps.domain.ports.Player;
 import org.springframework.stereotype.Component;
 
+import java.util.Optional;
 import java.util.Random;
 
 /**
@@ -18,9 +19,9 @@ public class ComputerPlayer implements Player {
      * @return OpenHand whcih represents a randomly played hand
      */
     @Override
-    public OpenHand playHand() {
+    public Optional<OpenHand> playHand() {
         int pick = new Random().nextInt(Hand.values().length);
         Hand hand = Hand.values()[pick];
-        return GoFactory.openHand(hand).get();
+        return GoFactory.openHand(hand);
     }
 }

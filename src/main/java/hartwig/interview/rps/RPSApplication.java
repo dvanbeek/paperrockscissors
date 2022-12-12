@@ -35,17 +35,27 @@ public class RPSApplication implements CommandLineRunner{
 			CLIMessage.info("Do you want to play another round? Y/N");
 			var continueGame = scanner.next();
 
-			if(!continueGame.equalsIgnoreCase("y") && !continueGame.equalsIgnoreCase("n")) {
-				CLIMessage.info("Plese enter Y or N to continue.");
-				continueGame = scanner.next();
+			if(!isValidDecision(continueGame)) {
+				for(;;) {
+					CLIMessage.info("Plese enter Y or N to continue.");
+					continueGame = scanner.next();
+					if(isValidDecision(continueGame))
+						break;
+				}
 			}
-			else if(continueGame.equalsIgnoreCase("n")) {
+
+			if(continueGame.equalsIgnoreCase("n")) {
 				break;
 			}
+
 		}
 		var score = gameManager.endGame();
 		var playerModeScore = score.getPlayerScore(playerMode.toString());
 		CLIMessage.displayScore(playerModeScore.getWins(), playerModeScore.getLosses(), playerModeScore.getTies());
+	}
+
+	private static boolean isValidDecision(String continueGame) {
+		return continueGame.equalsIgnoreCase("n") || continueGame.equalsIgnoreCase("y");
 	}
 
 	private Player initializeGameForCLIPlayer() {

@@ -66,9 +66,13 @@ class RPSGame implements Game {
     public void playRound() {
         var player1Hand = player1.playHand();
         var player2Hand = player2.playHand();
-        System.out.println("You played :" + player1Hand.getCurrentHand().name());
-        System.out.println("Opponent played :" + player2Hand.getCurrentHand().name());
-        var roundResult = referee.judge(player1Hand, player2Hand);
+        if(!player1Hand.isPresent() || !player2Hand.isPresent()){
+            System.out.println("Invalid hand played. Round skipped");
+            return;
+        }
+        System.out.println("You played :" + player1Hand.get().getCurrentHand().name());
+        System.out.println("Opponent played :" + player2Hand.get().getCurrentHand().name());
+        var roundResult = referee.judge(player1Hand.get(), player2Hand.get());
         gameScore.recordScore(roundResult, player1.toString(), player2.toString());
     }
 

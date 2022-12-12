@@ -12,6 +12,6 @@ class ComputerPlayerTest {
     void playHand_AlwaysPlayesAllowedHand() {
         Player player = new ComputerPlayer();
         var acutal = player.playHand();
-        assertThat(acutal.getCurrentHand()).isIn(Hand.Paper, Hand.Rock, Hand.Scissors);
+        assertThat(acutal.get().getCurrentHand()).isIn(Hand.Paper, Hand.Rock, Hand.Scissors);
     }
 }
