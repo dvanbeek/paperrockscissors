@@ -24,3 +24,13 @@ It's intentionally not an algorithmically complex problem, so we're looking more
 * Don't go overboard, this should only take a few hours.
 
 
+## Solution
+* The solution is written in Go 1.19
+  - Run tests with `go test -v ./...`
+  - Run the game with `go run .`
+  - Or use docker:
+    - Build the image with `docker build -t paperrockscissors .`
+    - Run the game with `docker run --rm -it paperrockscissors`
+
+
+
