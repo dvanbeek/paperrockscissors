@@ -1,69 +1,79 @@
 import lombok.SneakyThrows;
-import nl.hartwigmedical.Game;
-import nl.hartwigmedical.HumanPlayer;
-import nl.hartwigmedical.TooManyPLayersException;
-import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.DisplayName;
-import org.junit.jupiter.api.Test;
+import nl.hartwigmedical.exceptions.TooManyPLayersException;
+import nl.hartwigmedical.game.Choice;
+import nl.hartwigmedical.game.Game;
+import nl.hartwigmedical.players.ComputerPlayer;
+import nl.hartwigmedical.players.HumanPlayer;
+import nl.hartwigmedical.players.Player;
+import org.javatuples.Pair;
+import org.junit.jupiter.api.*;
 
-import java.io.ByteArrayInputStream;
-import java.io.InputStream;
-import java.util.Scanner;
-
-import static org.junit.jupiter.api.Assertions.assertThrows;
-import static org.junit.jupiter.api.Assertions.fail;
+import java.util.Optional;
 
 @DisplayName("Game logic tests")
 public class GameTest {
 
-    Game game;
-    private InputStream keyBoardIn = System.in;
-
+    private Game game;
 
     @BeforeEach
+    @SneakyThrows
     public void setup() {
-
+        game = Game.initGame();
     }
+
+    @AfterEach
+    public void tearDown(){
+        game = null;
+    }
+
     @Test
     @SneakyThrows
     @DisplayName("Test game initialisation")
-    public void testInitGame(){
-        game = Game.initGame();
+    public void testInitGame() {
         Assertions.assertNotNull(game);
-    }
-
-    @Test
-    @SneakyThrows
-    @DisplayName("Test human player name")
-    public void  testAskForPlayerName() {
-        game = Game.initGame();
-
-        final String playerName = "Rex";
-        providePlayerInput(playerName);
-        Scanner scanner = new Scanner(System.in);
-        game.askForHumanPlayerName(scanner);
-
-        Assertions.assertEquals(2,game.getPlayers().size());
-        Assertions.assertEquals(game.getHumanPlayerFromGame().getName(), playerName);
-        scanner.close();
     }
 
     @Test
     @SneakyThrows
     @DisplayName("Test maximum player limit in game")
     public void testShouldThrowExceptionIfTooManyPlayer() {
-        game = Game.initGame();
-        Assertions.assertThrows(TooManyPLayersException.class, ()-> {
+        Assertions.assertThrows(TooManyPLayersException.class, () -> {
             game.addPlayer(new HumanPlayer("Martijn"));
             game.addPlayer(new HumanPlayer("ThreeIsACrowd"));
         });
     }
 
+    @DisplayName("Test paper beats rock")
+    @SneakyThrows
+    @Test
+    public void testPaperShouldBeatRock(){
+        String playerName = "Test";
+        Pair<Player, Choice> humanPlayerChoice = new Pair<>(new HumanPlayer(playerName), Choice.PAPER);
+        Pair<Player, Choice> computerPlayerChoice = new Pair<>(new ComputerPlayer(), Choice.ROCK);
+        Optional<Player> winner = game.determineWinner.apply(humanPlayerChoice, computerPlayerChoice);
+        Assertions.assertEquals(winner.get().getName(), playerName);
+    }
 
-    private void providePlayerInput(String data) {
-        keyBoardIn = new ByteArrayInputStream(data.getBytes());
-        System.setIn(keyBoardIn);
+    @DisplayName("Test rock beats scissors")
+    @SneakyThrows
+    @Test
+    public void testRockShouldBeatScissors(){
+        String playerName = "Mister";
+        Pair<Player, Choice> humanPlayerChoice = new Pair<>(new HumanPlayer(playerName), Choice.ROCK);
+        Pair<Player, Choice> computerPlayerChoice = new Pair<>(new ComputerPlayer(), Choice.SCISSORS);
+        Optional<Player> winner = game.determineWinner.apply(humanPlayerChoice, computerPlayerChoice);
+        Assertions.assertEquals(winner.get().getName(), playerName);
+    }
+
+    @DisplayName("Test scissors beats paper")
+    @SneakyThrows
+    @Test
+    public void testScissorsShouldBeatPaper(){
+        String playerName = "Patatohead";
+        Pair<Player, Choice> humanPlayerChoice = new Pair<>(new HumanPlayer(playerName), Choice.SCISSORS);
+        Pair<Player, Choice> computerPlayerChoice = new Pair<>(new ComputerPlayer(), Choice.PAPER);
+        Optional<Player> winner = game.determineWinner.apply(humanPlayerChoice, computerPlayerChoice);
+        Assertions.assertEquals(winner.get().getName(), playerName);
     }
 
 }
