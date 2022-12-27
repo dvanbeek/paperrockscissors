@@ -8,8 +8,8 @@ public class HumanPlayer implements Player {
         this.playerType = PlayerType.HUMAN;
     }
 
-    @Override
-    public void setName(String name) {
+    public HumanPlayer(String name) {
+        this.playerType = PlayerType.HUMAN;
         this.name = name;
     }
 
