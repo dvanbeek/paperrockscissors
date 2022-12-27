@@ -1,3 +1,4 @@
+import lombok.SneakyThrows;
 import nl.hartwigmedical.App;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
@@ -25,6 +26,7 @@ public class AppTest {
 
 
     @Test
+    @SneakyThrows
     public void testGameBootstrap() {
         App.main(null);
         assertEquals("Starting the game....hold on..", outputStreamCaptor.toString().trim());

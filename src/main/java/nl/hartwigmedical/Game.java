@@ -2,12 +2,13 @@ package nl.hartwigmedical;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
 
 public class Game {
 
     static Game game ;
     //only 2 players allowed
-    private List players = new ArrayList();
+    private List<Player> players = new ArrayList();
     public static Game initGame() throws TooManyPLayersException {
         if (game == null){
             game = new Game();
@@ -25,5 +26,14 @@ public class Game {
 
     public List<Player> getPlayers() {
         return players;
+    }
+
+    public HumanPlayer getHumanPlayerFromGame(){
+        return (HumanPlayer)players.get(1);
+    }
+
+    public void askForHumanPlayerName(Scanner scanner) throws TooManyPLayersException {
+        String name = scanner.nextLine();
+        this.addPlayer(new HumanPlayer(name));
     }
 }
