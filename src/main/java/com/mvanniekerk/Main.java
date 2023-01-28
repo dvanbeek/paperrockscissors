@@ -16,7 +16,7 @@ public class Main {
     public static void main(String[] args) {
         System.out.println(INSTRUCTIONS);
         var scanner = new Scanner(System.in);
-        var game = new Game();
+        var game = Game.randomGame();
         while (scanner.hasNextLine()) {
             var line = scanner.nextLine().strip().toLowerCase();
             var playerMove = Move.parse(line);

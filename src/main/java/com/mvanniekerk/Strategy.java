@@ -16,8 +16,11 @@ public interface Strategy {
      */
     Move choice(List<Round> rounds);
 
+    /**
+     * This AI always makes a random choice, regardless of the previous rounds.
+     */
     class RandomStrategy implements Strategy {
-        Random random = new Random();
+        private final Random random = new Random();
 
         @Override
         public Move choice(List<Round> rounds) {
