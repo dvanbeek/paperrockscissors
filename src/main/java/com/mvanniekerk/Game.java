@@ -1,36 +1,29 @@
 package com.mvanniekerk;
 
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+import java.util.stream.Collector;
+
 /**
  * A game represents a complete rock-paper-scissors session.
  * It has 0-N matches and lasts until the player quits.
  */
 public class Game {
-    private int wins = 0;
-    private int draws = 0;
-    private int losses = 0;
+    private final List<Match> matches = new ArrayList<>();
+    private final Stats stats = new Stats();
 
     private final Strategy strategy = new Strategy.RandomStrategy();
 
-    public Result match(MatchChoice playerChoice) {
-        var aiChoice = strategy.choice(this);
-        if (aiChoice.equals(playerChoice)) {
-            draws++;
-            return Result.DRAW;
-        }
-        if (aiChoice.beats(playerChoice)) {
-            losses++;
-            return Result.LOSS;
-        } else {
-            wins++;
-            return Result.WIN;
-        }
+    public Match match(MatchChoice playerChoice) {
+        var aiChoice = strategy.choice(Collections.unmodifiableList(matches));
+        var match = new Match(playerChoice, aiChoice);
+        matches.add(match);
+        stats.addResult(match.getResultForPlayer());
+        return match;
     }
 
     public String getSummary() {
-        return """
-           You won %s times.
-           You lost %s times.
-           You drew %s times.
-           """.formatted(wins, losses, draws);
+        return stats.toString();
     }
 }

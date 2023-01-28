@@ -20,7 +20,7 @@ public class Main {
             var playerChoice = MatchChoice.parse(line);
             if (playerChoice != null) {
                 var result = game.match(playerChoice);
-                System.out.println("You " + Result.toString(result) + ".");
+                System.out.println(result.toString());
             } else if (line.equals("quit")) {
                 break;
             } else {
