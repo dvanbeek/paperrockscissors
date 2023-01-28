@@ -1,4 +1,4 @@
-package com.mvanniekerk;
+package com.mvanniekerk.match;
 
 public enum Result {
     WIN, LOSS, DRAW;

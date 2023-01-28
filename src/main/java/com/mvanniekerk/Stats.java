@@ -1,5 +1,10 @@
 package com.mvanniekerk;
 
+import com.mvanniekerk.match.Result;
+
+/**
+ * Game summary statistics.
+ */
 public class Stats {
     private int losses = 0;
     private int wins = 0;

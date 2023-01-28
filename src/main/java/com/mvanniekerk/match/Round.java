@@ -1,14 +1,17 @@
-package com.mvanniekerk;
+package com.mvanniekerk.match;
 
-public class Match {
-    private final MatchChoice playerChoice;
-    private final MatchChoice aiChoice;
+public class Round {
+    private final Move playerChoice;
+    private final Move aiChoice;
 
-    public Match(MatchChoice playerChoice, MatchChoice aiChoice) {
-        this.playerChoice = playerChoice;
-        this.aiChoice = aiChoice;
+    public Round(Move playerMove, Move aiMove) {
+        this.playerChoice = playerMove;
+        this.aiChoice = aiMove;
     }
 
+    /**
+     * @return the match result from the perspective of the player.
+     */
     public Result getResultForPlayer() {
         if (aiChoice.equals(playerChoice)) {
             return Result.DRAW;

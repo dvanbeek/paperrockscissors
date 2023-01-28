@@ -1,5 +1,7 @@
 package com.mvanniekerk;
 
+import com.mvanniekerk.match.Move;
+
 import java.util.Scanner;
 
 public class Main {
@@ -17,17 +19,15 @@ public class Main {
         var game = new Game();
         while (scanner.hasNextLine()) {
             var line = scanner.nextLine().strip().toLowerCase();
-            var playerChoice = MatchChoice.parse(line);
-            if (playerChoice != null) {
-                var result = game.match(playerChoice);
-                System.out.println(result.toString());
+            var playerMove = Move.parse(line);
+            if (playerMove != null) {
+                System.out.println(game.playRound(playerMove));
             } else if (line.equals("quit")) {
                 break;
             } else {
                 System.out.println("Please type either rock/paper/scissors or quit.");
             }
         }
-        System.out.println("Thanks for playing!");
-        System.out.println(game.getSummary());
+        System.out.println("Thanks for playing!\n" + game.getStats());
     }
 }

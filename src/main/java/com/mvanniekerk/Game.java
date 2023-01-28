@@ -1,29 +1,42 @@
 package com.mvanniekerk;
 
+import com.mvanniekerk.match.Round;
+import com.mvanniekerk.match.Move;
+
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
-import java.util.stream.Collector;
 
 /**
  * A game represents a complete rock-paper-scissors session.
  * It has 0-N matches and lasts until the player quits.
  */
 public class Game {
-    private final List<Match> matches = new ArrayList<>();
+    private final List<Round> rounds = new ArrayList<>();
     private final Stats stats = new Stats();
 
     private final Strategy strategy = new Strategy.RandomStrategy();
 
-    public Match match(MatchChoice playerChoice) {
-        var aiChoice = strategy.choice(Collections.unmodifiableList(matches));
-        var match = new Match(playerChoice, aiChoice);
-        matches.add(match);
-        stats.addResult(match.getResultForPlayer());
-        return match;
+    /**
+     * Play a round against the AI. The AI will choose an option according to its strategy.
+     * The round is recorded so the AI can potentially use it to improve its strategy.
+     * The round result is stored in stats so that the stats can be shown when the game ends.
+     *
+     * @param playerChoice the choice of the player.
+     * @return the match, containing the choices of the player and the AI.
+     */
+    public Round playRound(Move playerChoice) {
+        var aiChoice = strategy.choice(Collections.unmodifiableList(rounds));
+        var round = new Round(playerChoice, aiChoice);
+        rounds.add(round);
+        stats.addResult(round.getResultForPlayer());
+        return round;
     }
 
-    public String getSummary() {
-        return stats.toString();
+    /**
+     * @return a summary of the game using the recorded game results.
+     */
+    public Stats getStats() {
+        return stats;
     }
 }
