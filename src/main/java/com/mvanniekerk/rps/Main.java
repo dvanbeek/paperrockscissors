@@ -1,6 +1,6 @@
-package com.mvanniekerk;
+package com.mvanniekerk.rps;
 
-import com.mvanniekerk.match.Move;
+import com.mvanniekerk.rps.match.Move;
 
 import java.util.Scanner;
 

@@ -1,4 +1,4 @@
-package com.mvanniekerk.match;
+package com.mvanniekerk.rps.match;
 
 public class Round {
     private final Move playerChoice;

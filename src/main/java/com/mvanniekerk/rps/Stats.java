@@ -1,6 +1,6 @@
-package com.mvanniekerk;
+package com.mvanniekerk.rps;
 
-import com.mvanniekerk.match.Result;
+import com.mvanniekerk.rps.match.Result;
 
 /**
  * Game summary statistics.

@@ -1,6 +1,4 @@
-package com.mvanniekerk.match;
-
-import java.util.Random;
+package com.mvanniekerk.rps.match;
 
 public class Move {
     private enum MoveType {

@@ -1,7 +1,7 @@
-package com.mvanniekerk;
+package com.mvanniekerk.rps;
 
-import com.mvanniekerk.match.Round;
-import com.mvanniekerk.match.Move;
+import com.mvanniekerk.rps.match.Round;
+import com.mvanniekerk.rps.match.Move;
 
 import java.util.List;
 import java.util.Random;

@@ -1,4 +1,4 @@
-package com.mvanniekerk;
+package com.mvanniekerk.rps;
 
 import org.junit.jupiter.api.Test;
 

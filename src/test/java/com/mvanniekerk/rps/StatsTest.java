@@ -1,6 +1,6 @@
-package com.mvanniekerk;
+package com.mvanniekerk.rps;
 
-import com.mvanniekerk.match.Result;
+import com.mvanniekerk.rps.match.Result;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
