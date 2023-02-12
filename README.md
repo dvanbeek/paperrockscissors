@@ -1,3 +1,26 @@
+# Paper Rock Scissors
+
+[![CircleCI](https://circleci.com/gh/flyaruu/paperrockscissors.svg?style=svg)](https://circleci.com/gh/flyaruu/paperrockscissors)
+
+Implemented in Rust, to make it interesting.
+
+To build:
+```bash
+cargo build
+```
+
+To test:
+```bash
+cargo test
+```
+
+To run some benchmarks:
+```bash
+cargo bench
+```
+
+
+
 # Paper Rock Scissors Exercise
 
 The following is a small exercise to get an idea of your coding and design skills. We would like you to develop a simple interactive game of [Paper Rock Scissors](https://en.wikipedia.org/wiki/Rock_paper_scissors)
