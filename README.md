@@ -1,3 +1,31 @@
+# Paper Rock Scissors
+
+[![CircleCI](https://circleci.com/gh/flyaruu/paperrockscissors.svg?style=svg)](https://circleci.com/gh/flyaruu/paperrockscissors)
+
+Implemented in Rust, to make it interesting, I'm not a total Rust master, but I manage, and learned some stuff on the way. Pretty happy with how it turned out, Rust has an amazingly powerful type system.
+
+I've documented most of the public entities, but it is meant for starting discussions.
+
+To build:
+```bash
+cargo build
+```
+
+To test:
+```bash
+cargo test
+```
+
+To run some benchmarks:
+```bash
+cargo bench
+```
+
+To see the docs:
+```bash
+cargo doc --open
+```
+
 # Paper Rock Scissors Exercise
 
 The following is a small exercise to get an idea of your coding and design skills. We would like you to develop a simple interactive game of [Paper Rock Scissors](https://en.wikipedia.org/wiki/Rock_paper_scissors)
