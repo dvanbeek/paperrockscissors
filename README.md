@@ -24,3 +24,7 @@ It's intentionally not an algorithmically complex problem, so we're looking more
 * Don't go overboard, this should only take a few hours.
 
 
+## Possible Improvements
+* explicit exceptions instead of IllegalStateExceptions
+* testing the Main class itself
+* test setup. Classes are currently intertwined.
