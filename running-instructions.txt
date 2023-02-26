@@ -1,1 +1,2 @@
 Import as a Maven project and run 'mvn clean install' to build, run tests and generate jar.
+Tests can also be run in isolation from GameTests.java
