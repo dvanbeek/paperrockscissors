@@ -1,0 +1,1 @@
+Import as a Maven project and run 'mvn clean install' to build, run tests and generate jar.
