@@ -1,3 +1,28 @@
+# Rock Paper Scissors
+
+Implementation of [Rock Paper Scissors](https://en.wikipedia.org/wiki/Rock_paper_scissors) in Kotlin. 
+
+## Prerequisites
+
+* Maven 3
+* Java 17
+
+## Build
+
+Run tests, build and create a JAR file with:
+```bash
+mvn package 
+```
+
+## Run
+
+Run the game with:
+```bash
+java -jar target/rockpaperscissors.jar
+```
+
+---
+
 # Paper Rock Scissors Exercise
 
 The following is a small exercise to get an idea of your coding and design skills. We would like you to develop a simple interactive game of [Paper Rock Scissors](https://en.wikipedia.org/wiki/Rock_paper_scissors)
