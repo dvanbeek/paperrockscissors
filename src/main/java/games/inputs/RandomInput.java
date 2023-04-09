@@ -1,7 +1,10 @@
-package src.main.java.games;
+package games.inputs;
 
 import java.util.List;
 import java.util.Random;
+
+import games.IChoice;
+import games.IInputStrategy;
 
 /**
  * Class to choose a random input from the available options using

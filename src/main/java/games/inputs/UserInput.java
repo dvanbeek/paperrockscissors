@@ -1,8 +1,11 @@
-package src.main.java.games;
+package games.inputs;
 
 import java.io.Closeable;
 import java.util.List;
 import java.util.Scanner;
+
+import games.IChoice;
+import games.IInputStrategy;
 
 /**
  * Handles UserInput using the java.util.Scanner input source.
