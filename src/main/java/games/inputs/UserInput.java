@@ -35,7 +35,7 @@ public class UserInput implements IInputStrategy, Closeable{
     {
         int number;
         while (true) {
-            System.out.print("Enter your choice (int): ");
+            System.out.println("Enter your choice (int): ");
             String input = scanner.nextLine();
         
             try {
