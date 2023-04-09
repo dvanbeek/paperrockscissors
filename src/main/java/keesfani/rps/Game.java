@@ -26,7 +26,6 @@ public class Game {
             continueLoop = gameloop(scanner);
         }
         System.out.println("You have exited the game! Summary: " + createSummary(scores));
-        System.exit(0);
     }
 
     private boolean gameloop(Scanner scanner) {
