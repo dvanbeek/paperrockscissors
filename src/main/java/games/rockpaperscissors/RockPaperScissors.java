@@ -26,20 +26,24 @@ public class RockPaperScissors implements IGame{
         this.players = players;
         this.choices = Arrays.asList(RockPaperScissorsOptions.values());
         this.rules = getRules();
-}
+    }
 
+    /**
+     * Creates an array with the game rules.
+     * @return The created array with the game rules.
+     */
     private ResultsEnum[][] getRules() {
-        ResultsEnum[][] rules = new ResultsEnum[this.choices.size()][this.choices.size()];
-        rules[RockPaperScissorsOptions.ROCK.ordinal()][RockPaperScissorsOptions.SCISSORS.ordinal()] = ResultsEnum.WIN;
-        rules[RockPaperScissorsOptions.ROCK.ordinal()][RockPaperScissorsOptions.PAPER.ordinal()] = ResultsEnum.LOSS;
-        rules[RockPaperScissorsOptions.ROCK.ordinal()][RockPaperScissorsOptions.ROCK.ordinal()] = ResultsEnum.TIE;
-        rules[RockPaperScissorsOptions.PAPER.ordinal()][RockPaperScissorsOptions.PAPER.ordinal()] = ResultsEnum.TIE;
-        rules[RockPaperScissorsOptions.PAPER.ordinal()][RockPaperScissorsOptions.ROCK.ordinal()] = ResultsEnum.WIN;
-        rules[RockPaperScissorsOptions.PAPER.ordinal()][RockPaperScissorsOptions.SCISSORS.ordinal()] = ResultsEnum.LOSS;
-        rules[RockPaperScissorsOptions.SCISSORS.ordinal()][RockPaperScissorsOptions.PAPER.ordinal()] = ResultsEnum.WIN;
-        rules[RockPaperScissorsOptions.SCISSORS.ordinal()][RockPaperScissorsOptions.ROCK.ordinal()] = ResultsEnum.LOSS;
-        rules[RockPaperScissorsOptions.SCISSORS.ordinal()][RockPaperScissorsOptions.SCISSORS.ordinal()] = ResultsEnum.TIE;
-        return rules;
+        ResultsEnum[][] gameRules = new ResultsEnum[this.choices.size()][this.choices.size()];
+        gameRules[RockPaperScissorsOptions.ROCK.ordinal()][RockPaperScissorsOptions.SCISSORS.ordinal()] = ResultsEnum.WIN;
+        gameRules[RockPaperScissorsOptions.ROCK.ordinal()][RockPaperScissorsOptions.PAPER.ordinal()] = ResultsEnum.LOSS;
+        gameRules[RockPaperScissorsOptions.ROCK.ordinal()][RockPaperScissorsOptions.ROCK.ordinal()] = ResultsEnum.TIE;
+        gameRules[RockPaperScissorsOptions.PAPER.ordinal()][RockPaperScissorsOptions.PAPER.ordinal()] = ResultsEnum.TIE;
+        gameRules[RockPaperScissorsOptions.PAPER.ordinal()][RockPaperScissorsOptions.ROCK.ordinal()] = ResultsEnum.WIN;
+        gameRules[RockPaperScissorsOptions.PAPER.ordinal()][RockPaperScissorsOptions.SCISSORS.ordinal()] = ResultsEnum.LOSS;
+        gameRules[RockPaperScissorsOptions.SCISSORS.ordinal()][RockPaperScissorsOptions.PAPER.ordinal()] = ResultsEnum.WIN;
+        gameRules[RockPaperScissorsOptions.SCISSORS.ordinal()][RockPaperScissorsOptions.ROCK.ordinal()] = ResultsEnum.LOSS;
+        gameRules[RockPaperScissorsOptions.SCISSORS.ordinal()][RockPaperScissorsOptions.SCISSORS.ordinal()] = ResultsEnum.TIE;
+        return gameRules;
     }
 
     /**
