@@ -1,9 +1,13 @@
 package src.main.java.games;
 
+import java.io.Closeable;
 import java.util.List;
 import java.util.Scanner;
 
-public class UserInput implements IInputStrategy, AutoCloseable{
+/**
+ * Handles UserInput using the java.util.Scanner input source.
+ */
+public class UserInput implements IInputStrategy, Closeable{
 
     private final Scanner scanner;
 
@@ -15,6 +19,15 @@ public class UserInput implements IInputStrategy, AutoCloseable{
         this.scanner = new Scanner(System.in);
     }
 
+    /**
+     * Lets the user choose an option from the list of provided choices.
+     * The choices are presented as a numbered list to the user where
+     * the user selects an option by providing the number of the option.
+     * The input is checked whether it is valid and in range and retries
+     * untill a user provides a valid input.
+     * 
+     * Returns the choice made by the user
+     */
     public IChoice choose(List<IChoice> options)
     {
         int number;
@@ -36,7 +49,6 @@ public class UserInput implements IInputStrategy, AutoCloseable{
                 }
             } catch (NumberFormatException e) {
                 System.out.println("Invalid input: please enter a number");
-                scanner.nextLine();
             }
         }
         return options.get(number);
