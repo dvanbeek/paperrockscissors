@@ -1,26 +1,16 @@
 # Paper Rock Scissors Exercise
 
-The following is a small exercise to get an idea of your coding and design skills. We would like you to develop a simple interactive game of [Paper Rock Scissors](https://en.wikipedia.org/wiki/Rock_paper_scissors)
+This repository contains a simple interactive game of [Paper Rock Scissors](https://en.wikipedia.org/wiki/Rock_paper_scissors)
+The game is played through the CLI where the player needs to input their choice.
+When the player decides to stop, the game outputs a summary of games won, lost and tied.
 
-It's intentionally not an algorithmically complex problem, so we're looking more at modelling and structure. We are trying to get a feel for how you code in a professional setting.
+## Usage
+First, compile the program:
+```bash
+mvn clean package
+```
 
-## Functional Requirements
-* The user is presented with a CLI to play the game. 
-* A user can enter one of 3 inputs: paper, rock or scissors.
-* The computer will choose one input at random.
-* The game rules will be applied and a winner is chosen: 
-  - Paper beats Rock
-  - Rock beats Scissors
-  - Scissors beats Paper. 
-  - The same input is a tie. 
-* The game will repeat until the user explictly chooses to exit.
-* On exit a summary is displayed of games won, lost, and tied.
-
-## Non-Functional Requirements
-* Create a branch of this repo and submit your solution as a PR. 
-* You can use any language you like, but we'd like to see your object oriented design skills, so best to use a language supporting OO. 
-* Write your code to the same standard you would professionally (object structure, design patterns, readability, testing/testability, extensibility)
-* Write some unit tests for the key pieces of logic. 
-* Don't go overboard, this should only take a few hours.
-
-
+To play the game, use:
+```bash
+java -cp target/rockpaperscissors-1.0.0.jar games.Main
+```
