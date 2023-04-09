@@ -6,6 +6,9 @@ import games.IChoice;
 import games.IInputStrategy;
 import games.IPlayer;
 
+/**
+ * Defines Computer player.
+ */
 public class Computer implements IPlayer{
     
     private final IInputStrategy inputStrategy;

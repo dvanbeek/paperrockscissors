@@ -6,6 +6,9 @@ import games.IChoice;
 import games.IInputStrategy;
 import games.IPlayer;
 
+/**
+ * Defines Human player.
+ */
 public class Human implements IPlayer{
 
     private final IInputStrategy inputStrategy;

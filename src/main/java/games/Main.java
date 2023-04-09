@@ -10,6 +10,9 @@ import games.players.Computer;
 import games.players.Human;
 import games.rockpaperscissors.*;
 
+/**
+ * Entry point of the RockPaperScissors game.
+ */
 public class Main {
 
     private static boolean humanInGame = false;
