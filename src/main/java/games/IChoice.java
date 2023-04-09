@@ -1,4 +1,4 @@
-package src.main.java.games;
+package games;
 
 /**
  * Interface for encapsulating choices an user can make,

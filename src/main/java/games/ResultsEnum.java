@@ -1,8 +1,7 @@
-package src.main.java.games;
+package games;
 
 public enum ResultsEnum {
     WIN,
     TIE,
-    LOSS,
-    UNDECIDED
+    LOSS
 }

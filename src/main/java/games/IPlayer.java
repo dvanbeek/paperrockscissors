@@ -1,4 +1,4 @@
-package src.main.java.games;
+package games;
 import java.util.List;
 
 public interface IPlayer {
