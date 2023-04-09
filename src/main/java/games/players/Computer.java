@@ -1,12 +1,16 @@
-package src.main.java.games;
+package games.players;
 
 import java.util.List;
 
-public class Human implements IPlayer{
+import games.IChoice;
+import games.IInputStrategy;
+import games.IPlayer;
 
+public class Computer implements IPlayer{
+    
     private final IInputStrategy inputStrategy;
 
-    public Human(IInputStrategy inputStrategy)
+    public Computer(IInputStrategy inputStrategy)
     {
         this.inputStrategy = inputStrategy;
     }
@@ -18,6 +22,6 @@ public class Human implements IPlayer{
 
     public boolean isHuman()
     {
-        return true;
+        return false;
     }
 }
