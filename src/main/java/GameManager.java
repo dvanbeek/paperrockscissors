@@ -25,9 +25,9 @@ public class GameManager {
         this.scoreBoard = new ScoreBoard();
         this.scanner = scanner;
 
-        playersByMove = new HashMap<>();
+        this.playersByMove = new HashMap<>();
         for (Move move : Move.values()) {
-            playersByMove.putIfAbsent(move, new ArrayList<>());
+            this.playersByMove.putIfAbsent(move, new ArrayList<>());
         }
     }
 
@@ -49,31 +49,37 @@ public class GameManager {
             for (Move counterMove : Move.values()) {
                 if (move == counterMove
                     && playersByMove.get(move).size() > 1) {
-                    for (Player player : playersByMove.get(move)) {
-                        System.out.print(player.getName() + ", ");
-                    }
-                    System.out.printf(" played %s and have a tie%n", move.toString());
+                    handleTieOutput(move, playersByMove.get(move));
                 }
                 else if (move.winsAgainst(counterMove)
                     && !playersByMove.get(move).isEmpty()
                     && !playersByMove.get(counterMove).isEmpty()) {
-                    for (Player player1 : playersByMove.get(move)) {
-                        for (Player player2 : playersByMove.get(counterMove)) {
-                            this.scoreBoard.incrementScore(player1);
-                            System.out.printf("Player %s played %s and won the round against player %s whom played %s%n",
-                                    player1.getName(),
-                                    player1.getCurrentMove(),
-                                    player2.getName(),
-                                    player2.getCurrentMove());
-                        }
-                    }
+                    handleRoundWin(playersByMove.get(move), playersByMove.get(counterMove));
                 }
             }
         }
 
-        for (List<Player> playerList : playersByMove.values()) {
-            playerList.clear();
+        playersByMove.values().forEach(List::clear);
+    }
+
+    private void handleRoundWin(List<Player> winningPlayers, List<Player> losingPlayers) {
+        for (Player winner : winningPlayers) {
+            for (Player loser : losingPlayers) {
+                scoreBoard.incrementScore(winner);
+                System.out.printf("Player %s played %s and won the round against player %s whom played %s%n",
+                        winner.getName(),
+                        winner.getCurrentMove(),
+                        loser.getName(),
+                        loser.getCurrentMove());
+            }
         }
+    }
+
+    private void handleTieOutput(Move move, List<Player> playerList) {
+        for (Player player : playerList) {
+            System.out.print(player.getName() + ", ");
+        }
+        System.out.printf(" played %s and have a tie%n", move.toString());
     }
 
     public void setPlayerMovesForRound(int roundIndex) {
@@ -93,9 +99,10 @@ public class GameManager {
     }
 
     public void getHumanPlayerInput(HumanPlayer humanPlayer) {
-        System.out.println("Make a move for player " + humanPlayer.getName() + " (R for rock, P for paper, S for scissors. Press E to end the game)");
+        System.out.printf("Make a move for player %s (R for rock, P for paper" +
+                ", S for scissors. Press E to end the game)", humanPlayer.getName());
 
-        String moveString = this.scanner.nextLine().strip();
+        String moveString = scanner.nextLine().strip();
 
         if (moveString.equalsIgnoreCase("e")) {
             endGame();
@@ -124,7 +131,7 @@ public class GameManager {
 
     public void endGame() {
         scoreBoard.printScoreBoard();
-        this.scanner.close();
+        scanner.close();
         System.exit(0);
     }
 }
