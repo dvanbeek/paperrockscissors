@@ -22,7 +22,7 @@ public abstract class Player {
         return this.name;
     }
 
-    public Move getMove() {
+    public Move getCurrentMove() {
         return this.move;
     }
 

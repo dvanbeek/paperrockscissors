@@ -47,7 +47,14 @@ public class GameManager {
 
         for (Move move : Move.values()) {
             for (Move counterMove : Move.values()) {
-                if (move.winsAgainst(counterMove)
+                if (move == counterMove
+                    && playersByMove.get(move).size() > 1) {
+                    for (Player player : playersByMove.get(move)) {
+                        System.out.print(player.getName() + ", ");
+                    }
+                    System.out.printf(" played %s and have a tie%n", move.toString());
+                }
+                else if (move.winsAgainst(counterMove)
                     && !playersByMove.get(move).isEmpty()
                     && !playersByMove.get(counterMove).isEmpty()) {
                     for (Player player1 : playersByMove.get(move)) {
@@ -55,9 +62,9 @@ public class GameManager {
                             this.scoreBoard.incrementScore(player1);
                             System.out.printf("Player %s played %s and won the round against player %s whom played %s%n",
                                     player1.getName(),
-                                    player1.getMove(),
+                                    player1.getCurrentMove(),
                                     player2.getName(),
-                                    player2.getMove());
+                                    player2.getCurrentMove());
                         }
                     }
                 }
@@ -72,17 +79,17 @@ public class GameManager {
     public void setPlayerMovesForRound(int roundIndex) {
         System.out.printf("%n=== MOVES FOR ROUND %d ===%n", roundIndex);
 
-        for (int i = 0; i < numberOfComputerPlayers; i++) {
-            computerPlayers[i].setRandomMove();
-            playersByMove.get(computerPlayers[i].getMove()).add(computerPlayers[i]);
-            System.out.printf("Player %s played %s%n", computerPlayers[i].getName(), computerPlayers[i].getMove());
-        }
+        Arrays.stream(computerPlayers).forEach(computerPlayer -> {
+            computerPlayer.setRandomMove();
+            playersByMove.get(computerPlayer.getCurrentMove()).add(computerPlayer);
+            System.out.printf("Player %s played %s%n", computerPlayer.getName(), computerPlayer.getCurrentMove());
+        });
 
-        for (int i = 0; i < numberOfHumanPlayers; i++) {
-            getHumanPlayerInput(humanPlayers[i]);
-            playersByMove.get(humanPlayers[i].getMove()).add(humanPlayers[i]);
-            System.out.printf("Player %s played %s%n", humanPlayers[i].getName(), humanPlayers[i].getMove());
-        }
+        Arrays.stream(humanPlayers).forEach(humanPlayer -> {
+            getHumanPlayerInput(humanPlayer);
+            playersByMove.get(humanPlayer.getCurrentMove()).add(humanPlayer);
+            System.out.printf("Player %s played %s%n", humanPlayer.getName(), humanPlayer.getCurrentMove());
+        });
     }
 
     public void getHumanPlayerInput(HumanPlayer humanPlayer) {
