@@ -7,6 +7,16 @@ public abstract class Player {
 
     private Move move;
     private final String name;
+
+    /**
+     * UUID is used for hashing, otherwise there could be a hash collision
+     * between two players that happen to share the same name and move at once.
+     *
+     * Getting rid of UUID in the current implementation would not cause
+     * problems since we initialize players with unique names instead of
+     * asking users for name input. But it is useful for showcasing
+     * extensibility.
+     */
     private final UUID uniqueIdentifier;
 
 

@@ -38,7 +38,8 @@ public class ScoreBoard {
         System.out.println("\n=== RESULTS ===\n");
         int rank = 1;
         for (Score score : scoreList) {
-            System.out.printf("At rank %d stands player %s with score %d%n", rank++, score.player().getName(), score.score());
+            System.out.printf("At rank %d stands player %s with score %d%n",
+                    rank++, score.player().getName(), score.score());
         }
     }
 
