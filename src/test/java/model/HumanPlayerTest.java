@@ -29,4 +29,11 @@ public class HumanPlayerTest {
         humanPlayer.setMove(Move.PAPER);
         assertEquals(Move.PAPER, humanPlayer.getCurrentMove());
     }
+
+    @Test
+    public void twoPlayersWithSameNameAreUnequalTest() {
+        HumanPlayer otherHumanPlayer = new HumanPlayer("Hartwig");
+        assertEquals(humanPlayer.getName(), otherHumanPlayer.getName());
+        assertNotEquals(humanPlayer, otherHumanPlayer);
+    }
 }

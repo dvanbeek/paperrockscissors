@@ -7,8 +7,7 @@ public class GameManager {
     private final int numberOfComputerPlayers;
     private final int numberOfHumanPlayers;
 
-    private final ComputerPlayer[] computerPlayers;
-    private final HumanPlayer[] humanPlayers;
+    private final Player[] players;
 
     private final ScoreBoard scoreBoard;
 
@@ -27,8 +26,7 @@ public class GameManager {
             throw new IllegalArgumentException("The amount of human players must be a non-negative integer!");
         }
         this.numberOfHumanPlayers = numberOfHumanPlayers;
-        this.computerPlayers = new ComputerPlayer[numberOfComputerPlayers];
-        this.humanPlayers = new HumanPlayer[numberOfHumanPlayers];
+        this.players = new Player[numberOfComputerPlayers + numberOfHumanPlayers];
         this.scoreBoard = new ScoreBoard();
         if (scanner == null) {
             throw new NullPointerException("The passed scanner must be initialized");
@@ -40,7 +38,7 @@ public class GameManager {
         addPlayers();
 
         for (int i = 0; i < maxRounds; i++) {
-            Round round = new Round(i + 1, computerPlayers, humanPlayers, scoreBoard, scanner);
+            Round round = new Round(i + 1, players, scoreBoard, scanner);
             round.setPlayerMovesForRound();
             round.calculateRoundResults();
         }
@@ -50,12 +48,12 @@ public class GameManager {
 
     public void addPlayers() {
         for (int i = 0; i < numberOfComputerPlayers; i++) {
-            computerPlayers[i] = new ComputerPlayer("Computer-" + (i + 1));
-            scoreBoard.addPlayer(computerPlayers[i]);
+            players[i] = new ComputerPlayer("Computer-" + (i + 1));
+            scoreBoard.addPlayer(players[i]);
         }
         for (int i = 0; i < numberOfHumanPlayers; i++) {
-            humanPlayers[i] = new HumanPlayer("Player-" + (i + 1));
-            scoreBoard.addPlayer(humanPlayers[i]);
+            players[i + numberOfComputerPlayers] = new HumanPlayer("Player-" + (i + 1));
+            scoreBoard.addPlayer(players[i + numberOfComputerPlayers]);
         }
     }
 

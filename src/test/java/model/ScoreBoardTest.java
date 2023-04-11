@@ -40,8 +40,13 @@ public class ScoreBoardTest {
         scoreBoard.incrementScore(humanPlayer);
         scoreBoard.incrementScore(humanPlayer);
         scoreBoard.addPlayer(computerPlayer);
+
+        ComputerPlayer otherComputerPlayer = new ComputerPlayer("Computer1");
+        scoreBoard.incrementScore(otherComputerPlayer);
+
         assertEquals(humanPlayer, scoreBoard.getOrderedScoreList().get(0).player());
-        assertEquals(computerPlayer, scoreBoard.getOrderedScoreList().get(1).player());
+        assertEquals(otherComputerPlayer, scoreBoard.getOrderedScoreList().get(1).player());
+        assertEquals(computerPlayer, scoreBoard.getOrderedScoreList().get(2).player());
     }
 
 
