@@ -22,4 +22,8 @@ public class ComputerPlayer implements Player {
     public String getName() {
         return name;
     }
+
+    public RpsStrategy getStrategy() {
+        return strategy;
+    }
 }
