@@ -1,5 +1,6 @@
-package paperrockscissors;
+package paperrockscissors.io;
 
+import paperrockscissors.Move;
 import paperrockscissors.players.Player;
 
 public interface IOInterface {

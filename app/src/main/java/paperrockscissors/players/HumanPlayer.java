@@ -1,6 +1,6 @@
 package paperrockscissors.players;
 
-import paperrockscissors.IOInterface;
+import paperrockscissors.io.IOInterface;
 import paperrockscissors.Move;
 
 public class HumanPlayer implements Player {

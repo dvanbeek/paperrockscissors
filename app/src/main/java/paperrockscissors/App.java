@@ -3,6 +3,8 @@
  */
 package paperrockscissors;
 
+import paperrockscissors.io.CLI;
+import paperrockscissors.io.IOInterface;
 import paperrockscissors.players.ComputerPlayer;
 import paperrockscissors.players.HumanPlayer;
 import paperrockscissors.players.Player;

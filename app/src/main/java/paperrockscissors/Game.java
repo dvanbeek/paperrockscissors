@@ -1,5 +1,6 @@
 package paperrockscissors;
 
+import paperrockscissors.io.IOInterface;
 import paperrockscissors.players.Player;
 import paperrockscissors.rules.Rules;
 
