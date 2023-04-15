@@ -71,6 +71,19 @@ public class GameTest {
         assertArrayEquals(new int[] {1, 0, 0}, game.getScoreboard());
     }
 
+    @Test
+    public void testNewRoundRestarts() {
+        Player playerOne = mock(Player.class);
+        Player playerTwo = mock(Player.class);
+        Rules rules = mock(Rules.class);
+        IOInterface cli = mock(IOInterface.class);
+        when(cli.promptPlayAnotherRound()).thenReturn(true, false);
+        Game game = spy(new Game(cli, rules, playerOne, playerTwo));
+
+        game.nextRound();
+        verify(game, times(2)).nextRound();
+    }
+
 
 
 }
