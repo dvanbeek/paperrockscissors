@@ -6,8 +6,8 @@ import paperrockscissors.Move;
 import paperrockscissors.io.CLI;
 import paperrockscissors.io.IOInterface;
 import paperrockscissors.players.ComputerPlayer;
-import paperrockscissors.players.HumanPlayer;
 import paperrockscissors.players.Player;
+import paperrockscissors.players.factories.HumanPlayerFactory;
 import paperrockscissors.players.strategies.RpsStrategy;
 import paperrockscissors.rules.DefaultRules;
 import paperrockscissors.rules.Rules;
@@ -23,6 +23,7 @@ public class TestDefaultFlow {
     public void TestExampleGame() {
         // a human player and a computer player take it on in a game of rock-paper-scissors
         String predefinedUserInput = """
+                MyName
                 rock
                 y
                 paper
@@ -39,7 +40,11 @@ public class TestDefaultFlow {
 
         IOInterface cli = new CLI(new Scanner(System.in));
         Rules defaultRules = new DefaultRules();
-        Player humanPlayer = new HumanPlayer("foo", cli);
+        Player humanPlayer = new HumanPlayerFactory(cli).create();
+
+        assertEquals(humanPlayer.getName(), "MyName");
+
+
         Player computerPlayer = new ComputerPlayer("Computron", new DummyStrategy());
         Game game = new Game(cli, defaultRules, humanPlayer, computerPlayer);
 

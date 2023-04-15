@@ -5,10 +5,10 @@ package paperrockscissors;
 
 import paperrockscissors.io.CLI;
 import paperrockscissors.io.IOInterface;
-import paperrockscissors.players.ComputerPlayer;
-import paperrockscissors.players.HumanPlayer;
-import paperrockscissors.players.Player;
-import paperrockscissors.players.strategies.RandomStrategy;
+import paperrockscissors.players.*;
+import paperrockscissors.players.factories.ComputerPlayerBlueprint;
+import paperrockscissors.players.factories.ComputerPlayerFactory;
+import paperrockscissors.players.factories.HumanPlayerFactory;
 import paperrockscissors.rules.DefaultRules;
 
 import java.util.Scanner;
@@ -17,9 +17,12 @@ public class App {
 
     public static void main(String[] args) {
         IOInterface cli = new CLI(new Scanner(System.in));
-        String humanName = cli.promptPlayerName();
-        Player humanPlayer = new HumanPlayer(humanName, cli);
-        Player computerPlayer = new ComputerPlayer("Computron", new RandomStrategy());
+        HumanPlayerFactory humanPlayerFactory = new HumanPlayerFactory(cli);
+        ComputerPlayerFactory computerPlayerFactory = new ComputerPlayerFactory();
+
+        Player humanPlayer = humanPlayerFactory.create();
+        Player computerPlayer = computerPlayerFactory.create(ComputerPlayerBlueprint.RANDOM_COMPUTER_PLAYER, "computron");
+
         Game defaultGame = new Game(cli, new DefaultRules(), humanPlayer, computerPlayer);
         defaultGame.nextRound();
     }
