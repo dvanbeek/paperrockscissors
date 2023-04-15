@@ -1,6 +1,7 @@
-package paperrockscissors;
+package unittests.paperrockscissors;
 
 import org.junit.jupiter.api.Test;
+import paperrockscissors.Move;
 
 import static org.junit.jupiter.api.Assertions.*;
 

@@ -1,8 +1,10 @@
-package paperrockscissors;
+package unittests.paperrockscissors;
 
 
 import org.junit.jupiter.api.Test;
 
+import paperrockscissors.Game;
+import paperrockscissors.Move;
 import paperrockscissors.io.IOInterface;
 import paperrockscissors.players.Player;
 import paperrockscissors.rules.Rules;

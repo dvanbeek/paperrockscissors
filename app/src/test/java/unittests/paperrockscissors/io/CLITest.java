@@ -1,7 +1,9 @@
-package paperrockscissors.io;
+package unittests.paperrockscissors.io;
 
 import org.junit.jupiter.api.Test;
 import paperrockscissors.Move;
+import paperrockscissors.io.CLI;
+import paperrockscissors.io.IOInterface;
 
 import java.io.ByteArrayInputStream;
 import java.util.Scanner;
