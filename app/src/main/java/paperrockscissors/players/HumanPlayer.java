@@ -1,20 +1,20 @@
 package paperrockscissors.players;
 
-import paperrockscissors.CLI;
+import paperrockscissors.IOInterface;
 import paperrockscissors.Move;
 
 public class HumanPlayer implements Player {
 
-    private final CLI cli;
+    private final IOInterface io;
     private final String name;
 
-    public HumanPlayer(String name, CLI cli) {
+    public HumanPlayer(String name, IOInterface io) {
         this.name = name;
-        this.cli = cli;
+        this.io = io;
     }
     @Override
     public Move makeMove() {
-        return cli.promptNextMove(name);
+        return io.promptNextMove(name);
     }
 
     @Override

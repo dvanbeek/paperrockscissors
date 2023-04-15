@@ -12,8 +12,8 @@ import paperrockscissors.rules.DefaultRules;
 public class App {
 
     public static void main(String[] args) {
-        CLI cli = new CLI();
-        String humanName = cli.promptName();
+        IOInterface cli = new CLI();
+        String humanName = cli.promptPlayerName();
         Player humanPlayer = new HumanPlayer(humanName, cli);
         Player computerPlayer = new ComputerPlayer("Computron", new RandomStrategy());
         Game defaultGame = new Game(cli, new DefaultRules(), humanPlayer, computerPlayer);

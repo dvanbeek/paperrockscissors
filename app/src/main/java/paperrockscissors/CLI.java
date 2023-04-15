@@ -4,7 +4,7 @@ import paperrockscissors.players.Player;
 
 import java.util.Scanner;
 
-public class CLI {
+public class CLI implements IOInterface {
 
     private static final Scanner scanner = new Scanner(System.in);
 
@@ -47,7 +47,7 @@ public class CLI {
         System.out.println("Thank you for playing!");
     }
 
-    public String promptName() {
+    public String promptPlayerName() {
         System.out.println("Please enter your name");
         while (true) {
             String name = scanner.next();
