@@ -7,7 +7,11 @@ import java.util.Scanner;
 
 public class CLI implements IOInterface {
 
-    private static final Scanner scanner = new Scanner(System.in);
+    private final Scanner scanner;
+
+    public CLI(Scanner scanner) {
+        this.scanner = scanner;
+    }
 
     public Move promptNextMove(String playerName) {
         System.out.printf("%s, please enter your next move.%n", playerName);

@@ -11,10 +11,12 @@ import paperrockscissors.players.Player;
 import paperrockscissors.players.strategies.RandomStrategy;
 import paperrockscissors.rules.DefaultRules;
 
+import java.util.Scanner;
+
 public class App {
 
     public static void main(String[] args) {
-        IOInterface cli = new CLI();
+        IOInterface cli = new CLI(new Scanner(System.in));
         String humanName = cli.promptPlayerName();
         Player humanPlayer = new HumanPlayer(humanName, cli);
         Player computerPlayer = new ComputerPlayer("Computron", new RandomStrategy());
