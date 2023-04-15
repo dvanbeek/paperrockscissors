@@ -82,6 +82,7 @@ public class GameTest {
 
         game.nextRound();
         verify(game, times(2)).nextRound();
+        verify(game, times(1)).endGame();
     }
 
 
