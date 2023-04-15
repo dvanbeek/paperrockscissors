@@ -38,4 +38,8 @@ public class Game {
     public void endGame() {
         io.summarizeGame(player1, player2, scoreboard[1], scoreboard[2], scoreboard[0]);
     }
+
+    public int[] getScoreboard() {
+        return scoreboard;
+    }
 }
