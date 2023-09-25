@@ -11,4 +11,11 @@ class StdOutOutputter : ICanPrint {
                 println("It is a draw! Computer played ${opponent.toString()} as well.")
         }
     }
+
+    override fun printStats(stats:GameResult) {
+
+        println("Rounds played: ${stats.roundsPlayed}")
+        println("Rounds won: ${stats.roundsWon}")
+        println("Rounds drawn: ${stats.roundsDrawn}")
+    }
 }

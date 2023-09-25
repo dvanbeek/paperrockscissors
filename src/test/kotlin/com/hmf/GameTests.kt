@@ -10,6 +10,7 @@ class StubOpponent(val element: Element) : ICanPlay {
 }
 class StubOutputter : ICanPrint {
     override fun printOutcome(roundOutcome: Outcome, player: Element, opponent: Element) {}
+    override fun printStats(stats: GameResult)  {}
 }
 
 class GameTests {
@@ -28,14 +29,26 @@ class GameTests {
 
     @Test
     fun TestStatsForMultiplePlayedGameRounds(){
-        val game = Game<StubOpponent, StubOutputter>(alwaysRockOpponent,outputter)
-        game.playRound(playerHand=Element.SCISSORS)
-        game.playRound(playerHand=Element.ROCK)
-        game.playRound(playerHand=Element.PAPER)
-        val result = game.getStats()
-        assertEquals(result.roundsPlayed, 3)
-        assertEquals(result.roundsWon, 1)
-        assertEquals(result.roundsDrawn, 1)
+        run {
+            val game = Game<StubOpponent, StubOutputter>(alwaysRockOpponent,outputter)
+            game.playRound(playerHand=Element.SCISSORS)
+            game.playRound(playerHand=Element.ROCK)
+            game.playRound(playerHand=Element.PAPER)
+            val result = game.getStats()
+            assertEquals(result.roundsPlayed, 3)
+            assertEquals(result.roundsWon, 1)
+            assertEquals(result.roundsDrawn, 1)
+        }
+        run {
+            val game = Game<StubOpponent, StubOutputter>(alwaysRockOpponent,outputter)
+            game.playRound(playerHand=Element.PAPER)
+            game.playRound(playerHand=Element.PAPER)
+            game.playRound(playerHand=Element.PAPER)
+            val result = game.getStats()
+            assertEquals(result.roundsPlayed, 3)
+            assertEquals(result.roundsWon, 3)
+            assertEquals(result.roundsDrawn, 0)
+        }
     }
 
 
