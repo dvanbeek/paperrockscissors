@@ -3,7 +3,7 @@ package com.hmf
 class GameRules {
 
     private val rules: Array<Array<Outcome>> = arrayOf(
-        arrayOf(Outcome.DRAW,        Outcome.PLAYER_LOST, Outcome.PLAYER_WON), // we can also use shortArrayOf or doubleArrayOf...
+        arrayOf(Outcome.DRAW,        Outcome.PLAYER_LOST, Outcome.PLAYER_WON),
         arrayOf(Outcome.PLAYER_WON,  Outcome.DRAW,        Outcome.PLAYER_LOST),
         arrayOf(Outcome.PLAYER_LOST, Outcome.PLAYER_WON,  Outcome.DRAW)
     )
