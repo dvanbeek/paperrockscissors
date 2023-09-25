@@ -1,6 +1,6 @@
 package com.hmf
 
-class GameRound {
+class GameRules {
 
     private val rules: Array<Array<Outcome>> = arrayOf(
         arrayOf(Outcome.DRAW,        Outcome.PLAYER_LOST, Outcome.PLAYER_WON), // we can also use shortArrayOf or doubleArrayOf...

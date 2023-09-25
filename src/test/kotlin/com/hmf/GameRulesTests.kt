@@ -3,11 +3,11 @@ package com.hmf
 import org.junit.jupiter.api.Test
 import kotlin.test.assertEquals
 
-class GameRoundTests {
+class GameRulesTests {
 
     @Test
     fun TestSingleRound(){
-        val round = GameRound()
+        val round = GameRules()
         val outcome0 = round.getOutcome(player=Element.ROCK, opponent=Element.ROCK)
         assertEquals(outcome0, Outcome.DRAW)
 
