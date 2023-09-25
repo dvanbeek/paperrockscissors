@@ -9,6 +9,8 @@ class GameRules {
     )
 
     fun getOutcome(player: Element, opponent: Element): Outcome {
+        require(player.idx in 0..2)
+        require(opponent.idx in 0..2)
         return rules[player.idx][opponent.idx]
     }
 }
