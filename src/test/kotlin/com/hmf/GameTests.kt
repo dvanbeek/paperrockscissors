@@ -3,18 +3,23 @@ package com.hmf
 import org.junit.jupiter.api.Test
 import kotlin.test.assertEquals
 
-class StubOpponent : ICanPlay {
+class StubOpponent(val element: Element) : ICanPlay {
     override fun play(): Element {
-        return Element.ROCK;
+        return element;
     }
+}
+class StubOutputter : ICanPrint {
+    override fun printOutcome(roundOutcome: Outcome, player: Element, opponent: Element) {}
 }
 
 class GameTests {
 
+    val alwaysRockOpponent = StubOpponent(Element.ROCK)
+    val outputter = StubOutputter()
+
     @Test
     fun TestStatsForGameNotPlayed(){
-        val opponent = StubOpponent()
-        val game = Game<StubOpponent>(opponent)
+        val game = Game<StubOpponent, StubOutputter>(alwaysRockOpponent,outputter)
         val result = game.getStats()
         assertEquals(result.roundsPlayed, 0)
         assertEquals(result.roundsWon, 0)
@@ -23,8 +28,7 @@ class GameTests {
 
     @Test
     fun TestStatsForMultiplePlayedGameRounds(){
-        val opponent = StubOpponent()
-        val game = Game<StubOpponent>(opponent)
+        val game = Game<StubOpponent, StubOutputter>(alwaysRockOpponent,outputter)
         game.playRound(playerHand=Element.SCISSORS)
         game.playRound(playerHand=Element.ROCK)
         game.playRound(playerHand=Element.PAPER)

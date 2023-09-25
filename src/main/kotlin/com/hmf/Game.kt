@@ -1,11 +1,13 @@
 package com.hmf
 
-class Game<Opponent: ICanPlay> {
+class Game<Opponent: ICanPlay, Outputter: ICanPrint> {
 
     val opponent: Opponent
+    val outputter: Outputter
 
-    constructor(opponent:Opponent){
+    constructor(opponent:Opponent,outputter:Outputter){
         this.opponent = opponent
+        this.outputter = outputter
     }
     private var played:Int = 0;
     private var won:Int = 0;
@@ -14,18 +16,12 @@ class Game<Opponent: ICanPlay> {
 
     fun playRound(playerHand: Element) {
         val opponentHand = opponent.play()
-        when(rules.getOutcome(player = playerHand, opponent=opponentHand)){
-            Outcome.PLAYER_WON -> {
-                println("You won! ${playerHand.toString()} beats ${opponentHand.toString()}")
-                won+=1
-            }
-            Outcome.PLAYER_LOST -> {
-                println("You lost! ${playerHand.toString()} looses to ${opponentHand.toString()}")
-            }
-            Outcome.DRAW -> {
-                println("It is a draw! Computer played ${opponentHand.toString()} as well.")
-                drawn+=1
-            }
+        val outcome = rules.getOutcome(player = playerHand, opponent=opponentHand)
+        outputter.printOutcome(roundOutcome=outcome, player = playerHand, opponent = opponentHand)
+        when(outcome){
+            Outcome.PLAYER_WON -> won+=1
+            Outcome.DRAW ->  drawn+=1
+            Outcome.PLAYER_LOST -> Unit
         }
         played+=1
     }
