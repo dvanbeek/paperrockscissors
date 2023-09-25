@@ -5,7 +5,7 @@ import kotlin.test.assertEquals
 
 class StubOpponent : ICanPlay {
     override fun play(): Element {
-        TODO("Not yet implemented")
+        return Element.ROCK;
     }
 }
 
@@ -13,7 +13,8 @@ class GameTests {
 
     @Test
     fun TestStatsForGameNotPlayed(){
-        val game = Game()
+        val opponent = StubOpponent()
+        val game = Game<StubOpponent>(opponent)
         val result = game.getStats()
         assertEquals(result.roundsPlayed, 0)
         assertEquals(result.roundsWon, 0)
@@ -22,11 +23,15 @@ class GameTests {
 
     @Test
     fun TestStatsForMultiplePlayedGameRounds(){
-        val game = Game<StubOpponent>()
+        val opponent = StubOpponent()
+        val game = Game<StubOpponent>(opponent)
+        game.playRound(playerHand=Element.SCISSORS)
+        game.playRound(playerHand=Element.ROCK)
+        game.playRound(playerHand=Element.PAPER)
         val result = game.getStats()
-        assertEquals(result.roundsPlayed, 0)
-        assertEquals(result.roundsWon, 0)
-        assertEquals(result.roundsDrawn, 0)
+        assertEquals(result.roundsPlayed, 3)
+        assertEquals(result.roundsWon, 1)
+        assertEquals(result.roundsDrawn, 1)
     }
 
 
