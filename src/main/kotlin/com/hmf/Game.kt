@@ -34,23 +34,19 @@ class Game<Opponent: IOpponent, Outputter: IOutputter> {
     fun play(){
         var stopPlaying = false
         while (!stopPlaying) {
-            var userInput = Element.NONE
             print("Choose your input:\n'0' for ROCK\n'1' for PAPER\n'2' for SCISSORS\n'x' to stop\n -> ")
-            when (scanner.next().single()) {
-                '0' -> userInput = Element.ROCK
-                '1' -> userInput = Element.PAPER
-                '2' -> userInput = Element.SCISSORS
+            val userInput = when (scanner.next().single()) {
+                '0' -> Element.ROCK
+                '1' -> Element.PAPER
+                '2' -> Element.SCISSORS
                 'x' -> {
-                    stopPlaying = true
+                    outputter.printStats(getStats())
+                    break
                 }
                 else -> {
                     println("Invalid input, fat fingers? Try again!")
                     continue
                 }
-            }
-            if (stopPlaying){
-                outputter.printStats(getStats())
-                break
             }
             playRound(userInput)
         }
