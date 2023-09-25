@@ -1,5 +1,5 @@
 package com.hmf 
 
-interface ICanPlay {
+interface IOpponent {
     fun play(): Element
 }

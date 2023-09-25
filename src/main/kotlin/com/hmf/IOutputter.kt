@@ -1,6 +1,6 @@
 package com.hmf
 
-interface ICanPrint {
+interface IOutputter {
     fun printOutcome(roundOutcome: Outcome, player: Element, opponent: Element)
     fun printStats(stats:GameResult)
 }

@@ -1,6 +1,6 @@
 package com.hmf
 
-class StdOutOutputter : ICanPrint {
+class StdOutOutputter : IOutputter {
     override fun printOutcome(roundOutcome: Outcome, player: Element, opponent: Element) {
         when(roundOutcome){
             Outcome.PLAYER_LOST ->

@@ -2,7 +2,7 @@ package com.hmf
 
 import java.util.Scanner
 
-class Game<Opponent: ICanPlay, Outputter: ICanPrint> {
+class Game<Opponent: IOpponent, Outputter: IOutputter> {
 
     private val scanner = Scanner(System.`in`)
     private val opponent: Opponent

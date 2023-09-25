@@ -3,12 +3,12 @@ package com.hmf
 import org.junit.jupiter.api.Test
 import kotlin.test.assertEquals
 
-class StubOpponent(val element: Element) : ICanPlay {
+class StubOpponent(val element: Element) : IOpponent {
     override fun play(): Element {
         return element;
     }
 }
-class StubOutputter : ICanPrint {
+class StubOutputter : IOutputter {
     override fun printOutcome(roundOutcome: Outcome, player: Element, opponent: Element) {}
     override fun printStats(stats: GameResult)  {}
 }
