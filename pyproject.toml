@@ -1,0 +1,29 @@
+[tool.poetry]
+name = "paperrockscissors"
+version = "0.1.0"
+description = "A paper, rock, scissors game for the Hartwig Medical Foundation."
+authors = ["Maurits Dijkstra <mauritsdijkstra@gmail.nl>"]
+readme = "README.md"
+
+
+[tool.poetry.dependencies]
+python = "^3.11"
+click = "^8.1.7"
+rich = "^13.6.0"
+
+
+[tool.poetry.group.dev.dependencies]
+black = "^23.9.1"
+
+
+[tool.poetry.group.test.dependencies]
+pytest = "^7.4.2"
+
+
+[tool.poetry.scripts]
+prs = "paperrockscissors:main"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
