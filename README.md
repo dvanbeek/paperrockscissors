@@ -13,7 +13,7 @@ It's intentionally not an algorithmically complex problem, so we're looking more
   - Rock beats Scissors
   - Scissors beats Paper. 
   - The same input is a tie. 
-* The game will repeat until the user explictly chooses to exit.
+* The game will repeat until the user explicitly chooses to exit.
 * On exit a summary is displayed of games won, lost, and tied.
 
 ## Non-Functional Requirements
@@ -23,4 +23,9 @@ It's intentionally not an algorithmically complex problem, so we're looking more
 * Write some unit tests for the key pieces of logic. 
 * Don't go overboard, this should only take a few hours.
 
+## Running the Game!
+
+In order to build and run the game you need to have at least Java 17 installed.
+
+The game can be played by executing the class `org.prs.Main` located in `src/main/java`.
 
