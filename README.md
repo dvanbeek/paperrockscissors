@@ -23,4 +23,5 @@ It's intentionally not an algorithmically complex problem, so we're looking more
 * Write some unit tests for the key pieces of logic. 
 * Don't go overboard, this should only take a few hours.
 
-
+`gradlew run`
+`gradlew test`
