@@ -1,6 +1,6 @@
 # Paper Rock Scissors Solution
 
-The following code provides a simple yet well designed interactive game of [Paper Rock Scissors](https://en.wikipedia.org/wiki/Rock_paper_scissors)
+The following code provides a simple CLI based game of [Paper Rock Scissors](https://en.wikipedia.org/wiki/Rock_paper_scissors)
 
 The solution has been designed with the following objectives in mind:
 
