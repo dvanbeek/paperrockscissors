@@ -34,3 +34,4 @@ The solution has been designed with the following objectives in mind:
 - Additional comments, in particular to public methods. Some have been ommitted due to time constraints and self explanation of the code.
 - Additional unit test. Although many important unit tests are provided with this code, additional unit tests can be written to improve the coverage. Areas for further unit tests are:
   - App.java: currently missing any tests, because it only performs the necessary instantiations of components, and these components are all being tested to a certain degree.
+  - Rules.java: currently missing is test on calling evaluateMoves with invalid player1Move. This scenario should not happen in the complete app because the validity check of player1Move is performed in the GameControls using MoveEnum.
