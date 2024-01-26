@@ -1,4 +1,4 @@
-package com.hartwig.paperroclscissors;
+package com.hartwig.paperrockscissors;
 
 import static org.junit.jupiter.api.Assertions.*;
 
