@@ -27,7 +27,24 @@ The solution has been designed with the following objectives in mind:
 
 ## Implementation
 
-- App.java: performs the necessary instantiations and dependency injections to the main components of the game and then starts the game engine.
+- **App.java**: performs the necessary instantiations and dependency injections to the main components of the game and then starts the game engine.
+- engine
+
+  - **GameControls.java**:
+  - **GameControls.java**:
+  - **GameControls.java**:
+
+- exceptions
+
+  - **InvalidMoveException.java**:
+  - **QuitGameException.java**:
+
+- model
+  - **PlayerInterface.java**:
+  - **HumanPlayer.java**:
+  - **ComputerPlayer.java**:
+  - **MoveEnum.java**: Enumarates the possible moves (currently PAPER, ROCK, SCISSORS, but extendible)
+  - **Rules.java**: Contains a Map of rules (what beats what) and a static method to return the RoundResultEnum
 
 ## Future improvements
 
@@ -35,3 +52,4 @@ The solution has been designed with the following objectives in mind:
 - Additional unit test. Although many important unit tests are provided with this code, additional unit tests can be written to improve the coverage. Areas for further unit tests are:
   - App.java: currently missing any tests, because it only performs the necessary instantiations of components, and these components are all being tested to a certain degree.
   - Rules.java: currently missing is test on calling evaluateMoves with invalid player1Move. This scenario should not happen in the complete app because the validity check of player1Move is performed in the GameControls using MoveEnum.
+- Possible other gaming enhancements such as keeping track of names and highscores in a file or database.

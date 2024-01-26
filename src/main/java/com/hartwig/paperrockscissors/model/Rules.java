@@ -3,7 +3,6 @@ package com.hartwig.paperrockscissors.model;
 import java.util.EnumMap;
 import java.util.Map;
 
-import com.hartwig.paperrockscissors.engine.RoundResultEnum;
 import com.hartwig.paperrockscissors.exceptions.InvalidMoveException;
 
 /**

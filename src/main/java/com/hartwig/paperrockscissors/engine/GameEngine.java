@@ -4,6 +4,7 @@ import com.hartwig.paperrockscissors.exceptions.InvalidMoveException;
 import com.hartwig.paperrockscissors.exceptions.QuitGameException;
 import com.hartwig.paperrockscissors.model.MoveEnum;
 import com.hartwig.paperrockscissors.model.PlayerInterface;
+import com.hartwig.paperrockscissors.model.RoundResultEnum;
 import com.hartwig.paperrockscissors.model.Rules;
 
 /**

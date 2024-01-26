@@ -5,8 +5,6 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-import com.hartwig.paperrockscissors.engine.RoundResultEnum;
-
 /**
   * Test the rules handling by injecting the player 1 and player 2 moves that should result in:
   * - Player 1 wins
