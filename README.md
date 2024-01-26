@@ -1,10 +1,16 @@
 # Paper Rock Scissors Exercise
 
-The following is a small exercise to get an idea of your coding and design skills. We would like you to develop a simple interactive game of [Paper Rock Scissors](https://en.wikipedia.org/wiki/Rock_paper_scissors)
+The following code provides a simple yet well designed interactive game of [Paper Rock Scissors](https://en.wikipedia.org/wiki/Rock_paper_scissors)
 
-It's intentionally not an algorithmically complex problem, so we're looking more at modelling and structure. We are trying to get a feel for how you code in a professional setting.
+The solution has been designed with the following objectives in mind:
 
-## Functional Requirements
+- **Maintainability**: With well-defined classes and methods, maintaining the code becomes easier. Each class has a single responsibility, making it easier to identify where changes are needed.
+- **Readability**: The code is self-documenting due to meaningful methods and variable names. The added JavaDoc comments further enhance understanding.
+- **Scalability**: With the use of interfaces and encapsulation, adding new features or modifying existing ones becomes more straightforward.
+- **Robustness**: Exception handling ensures the game doesn’t break unexpectedly. Users are guided with appropriate feedback.
+- **Modularity**: The separation of concerns and well-defined boundaries between classes ensures high cohesion and low coupling, which is an important point of modular design.
+
+## Functionality
 
 - The user is presented with a CLI to play the game.
 - A user can enter one of 3 inputs: paper, rock or scissors.
@@ -19,10 +25,12 @@ It's intentionally not an algorithmically complex problem, so we're looking more
 - The game will repeat until the user explictly chooses to exit.
 - On exit a summary is displayed of games won, lost, and tied.
 
-## Non-Functional Requirements
+## Implementation
 
-- Create a branch of this repo and submit your solution as a PR.
-- You can use any language you like, but we'd like to see your object oriented design skills, so best to use a language supporting OO.
-- Write your code to the same standard you would professionally (object structure, design patterns, readability, testing/testability, extensibility)
-- Write some unit tests for the key pieces of logic.
-- Don't go overboard, this should only take a few hours.
+- App.java: performs the necessary instantiations and dependency injections to the main components of the game and then starts the game engine.
+
+## Future improvements
+
+- Additional comments, in particular to public methods. Some have been ommitted due to time constraints and self explanation of the code.
+- Additional unit test. Although many important unit tests are provided with this code, additional unit tests can be written to improve the coverage. Areas for further unit tests are:
+  - App.java: currently missing any tests, because it only performs the necessary instantiations of components, and these components are all being tested to a certain degree.

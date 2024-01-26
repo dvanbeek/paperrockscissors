@@ -25,11 +25,6 @@ public enum MoveEnum {
   MoveEnum(String value) {
     this.value = value;
   }
-  
-  // get character value
-	public String getValue() {
-    return value;
-	}
 
   private static Map<String, MoveEnum> initializeMap() {
     Map<String, MoveEnum> map = new HashMap<>();
