@@ -6,7 +6,7 @@ import java.util.Scanner;
 
 import com.hartwig.paperrockscissors.exceptions.InvalidMoveException;
 import com.hartwig.paperrockscissors.exceptions.QuitGameException;
-import com.hartwig.paperrockscissors.model.MoveEnum;
+import com.hartwig.paperrockscissors.model.Move;
 
 /**
  * GameControls for human player
@@ -30,14 +30,14 @@ public class GameControls implements AutoCloseable {
   * - QuitGameException: when the player has entered the Quit Command
   * - InvalidMoveException: when the player has entered an invalid Move
   */
-  public MoveEnum getPlayerMove() {
+  public Move getPlayerMove() {
     try {
       String input = scanner.next();
       if (input.equalsIgnoreCase(QUIT)) {
         throw new QuitGameException();
       }
-      // Map input character to MoveEnum constant ('PAPER', etc)
-      return MoveEnum.enumConstantFromCharacter(input);
+      // Map input character to Move constant ('PAPER', etc)
+      return Move.enumConstantFromCharacter(input);
 
     } catch (NoSuchElementException e) {
       // Catch the case where user presses ctrl-c or ctrl-z 
@@ -45,7 +45,7 @@ public class GameControls implements AutoCloseable {
       throw new QuitGameException();
 
     } catch (InvalidMoveException e) {
-      // For clarity: catch any InvalidMoveException coming from MoveEnum.enumConstantFromCharacter(input)
+      // For clarity: catch any InvalidMoveException coming from Move.enumConstantFromCharacter(input)
       // and re-throw this for handling in game engine
       throw new InvalidMoveException();
     }

@@ -31,7 +31,7 @@ The solution has been designed with the following objectives in mind:
 
 - \engine
 
-  - **GameControls.java**: Provides game controls for human player, currently being injected with keyboard scanner and providing a method (getPlayerMove) to parse input from human player and return a MoveEnum object.
+  - **GameControls.java**: Provides game controls for human player, currently being injected with keyboard scanner and providing a method (getPlayerMove) to parse input from human player and return a Move object.
   - **GameEngine.java**: Provides a start method consisting of a while loop that is exited upon receiving a QuitGameException from GameControls.
 
 - \exceptions
@@ -40,12 +40,12 @@ The solution has been designed with the following objectives in mind:
   - **QuitGameException.java**: Indicates a quit game request
 
 - \model
-  - **PlayerInterface.java**: Classes that implement this PlayerInterface must provide a getMove method that returns a MoveEnum object.
-  - **HumanPlayer.java**: Implements PlayerInterface.getMove() by using GameControls to identify move.
-  - **ComputerPlayer.java**: Implements PlayerInterface.getMove() by generating random computer move from the available options defined in MoveEnum.
+  - **Player.java**: Classes that implement this Player Interface must provide a getMove method that returns a Move object.
+  - **HumanPlayer.java**: Implements Player Interface: getMove() uses GameControls to identify move.
+  - **ComputerPlayer.java**: Implements Player Interface: getMove() generates random move from the available options defined in Move.
   - **Rules.java**: Contains a Map of rules (what beats what) and a static method to return the result based on the moves of 2 players.
-  - **MoveEnum.java**: Enumerates the possible moves (currently PAPER, ROCK, SCISSORS, but extendible). Defines private static unmodifiable map of string representations to corresponding MoveEnum constants. Provides method enumConstantFromCharacter that converts input string to lowercase and looks up input in Map of MoveEnum constants. Provides method getNumberOfMoveOptions that returns the total number of possible moves.
-  - **RoundResultEnum.java**: Enumerates the possible outcomes (currently PLAYER1_WINS, PLAYER2_WINS, TIE, but extendible).
+  - **Move.java**: Enumerates the possible moves (currently PAPER, ROCK, SCISSORS, but extendible). Defines private static unmodifiable map of string representations to corresponding Move constants. Provides method enumConstantFromCharacter that converts input string to lowercase and looks up input in Map of Move constants. Provides method getNumberOfMoveOptions that returns the total number of possible moves.
+  - **RoundResult.java**: Enumerates the possible outcomes (currently PLAYER1_WINS, PLAYER2_WINS, TIE, but extendible).
 
 ## Testing
 
@@ -56,7 +56,7 @@ Run the command `mvn jacoco:prepare-agent test install jacoco:report` to execute
 - Additional comments, in particular to public methods. Some have been ommitted due to time constraints and self explanation of the code.
 - Additional unit test. Although many important unit tests are provided with this code, additional unit tests can be written to improve the coverage. Areas for further unit tests are:
   - App.java: currently missing any tests, because it only performs the necessary instantiations of components, and these components are all being tested to a certain degree.
-  - Rules.java: currently missing is test on calling evaluateMoves with invalid player1Move. This scenario should not happen in the complete app because the validity check of player1Move is performed in the GameControls using MoveEnum.
+  - Rules.java: currently missing is test on calling evaluateMoves with invalid player1Move. This scenario should not happen in the complete app because the validity check of player1Move is performed in the GameControls using Move.
 - Additional robustness: add additional exception handlers for scenarios related to the scanner.
 - Possible other gaming enhancements such as:
   - Keeping track of names and highscores in a file or database.

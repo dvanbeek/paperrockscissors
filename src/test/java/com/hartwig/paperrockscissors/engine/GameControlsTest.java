@@ -15,7 +15,7 @@ import org.junit.jupiter.api.Test;
 
 import com.hartwig.paperrockscissors.exceptions.InvalidMoveException;
 import com.hartwig.paperrockscissors.exceptions.QuitGameException;
-import com.hartwig.paperrockscissors.model.MoveEnum;
+import com.hartwig.paperrockscissors.model.Move;
 
 /**
   * Test the GameControls for the following:
@@ -66,8 +66,8 @@ class GameControlsTest {
   @DisplayName("Should correctly process valid move")
   void testValidInput() {
     initializeGameControlsWithInput(INPUT_PAPER);
-    MoveEnum result = gameControls.getPlayerMove();
-    assertEquals(MoveEnum.PAPER, result);
+    Move result = gameControls.getPlayerMove();
+    assertEquals(Move.PAPER, result);
   }
 
   @Test

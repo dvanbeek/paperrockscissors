@@ -17,7 +17,7 @@ import com.hartwig.paperrockscissors.engine.GameControls;
   * - That the HumanPlayer class correctly delegates the move choice to the GameControls.
  */
 class HumanPlayerTest {
-  private PlayerInterface humanPlayer;
+  private Player humanPlayer;
   private GameControls gameControls;
 
   @BeforeEach
@@ -29,9 +29,9 @@ class HumanPlayerTest {
   @Test
   @DisplayName("Should correctly delegate the move choice to the GameControls")
   void testDelegatesToInputHandler() {
-    when(gameControls.getPlayerMove()).thenReturn(MoveEnum.ROCK); 
-    MoveEnum move = humanPlayer.getMove();
+    when(gameControls.getPlayerMove()).thenReturn(Move.ROCK); 
+    Move move = humanPlayer.getMove();
     verify(gameControls, times(1)).getPlayerMove(); 
-    assertEquals(MoveEnum.ROCK, move);
+    assertEquals(Move.ROCK, move);
   }
 }

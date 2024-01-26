@@ -13,8 +13,8 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import com.hartwig.paperrockscissors.exceptions.QuitGameException;
-import com.hartwig.paperrockscissors.model.MoveEnum;
-import com.hartwig.paperrockscissors.model.PlayerInterface;
+import com.hartwig.paperrockscissors.model.Move;
+import com.hartwig.paperrockscissors.model.Player;
 
 /**
   * Test the GameEngine for the following:
@@ -44,11 +44,11 @@ class GameEngineTest {
   @Test
   @DisplayName("Player 1 wins")
   void testPlayer1Wins() {
-    PlayerInterface player1 = mock(PlayerInterface.class);
-    PlayerInterface player2 = mock(PlayerInterface.class);
+    Player player1 = mock(Player.class);
+    Player player2 = mock(Player.class);
     // Given
-    when(player1.getMove()).thenReturn(MoveEnum.PAPER);
-    when(player2.getMove()).thenReturn(MoveEnum.ROCK).thenThrow(new QuitGameException());;
+    when(player1.getMove()).thenReturn(Move.PAPER);
+    when(player2.getMove()).thenReturn(Move.ROCK).thenThrow(new QuitGameException());;
     GameEngine game = new GameEngine(player1, player2);
     // When
     try {
@@ -67,11 +67,11 @@ class GameEngineTest {
   @Test
   @DisplayName("Player 2 wins")
   void testPlayer2Wins() {
-    PlayerInterface player1 = mock(PlayerInterface.class);
-    PlayerInterface player2 = mock(PlayerInterface.class);
+    Player player1 = mock(Player.class);
+    Player player2 = mock(Player.class);
     // Given
-    when(player1.getMove()).thenReturn(MoveEnum.ROCK);
-    when(player2.getMove()).thenReturn(MoveEnum.PAPER).thenThrow(new QuitGameException());;
+    when(player1.getMove()).thenReturn(Move.ROCK);
+    when(player2.getMove()).thenReturn(Move.PAPER).thenThrow(new QuitGameException());;
     GameEngine game = new GameEngine(player1, player2);
     // When
     try {
@@ -90,11 +90,11 @@ class GameEngineTest {
   @Test
   @DisplayName("Test tie")
   void testTie() {
-    PlayerInterface player1 = mock(PlayerInterface.class);
-    PlayerInterface player2 = mock(PlayerInterface.class);
+    Player player1 = mock(Player.class);
+    Player player2 = mock(Player.class);
     // Given
-    when(player1.getMove()).thenReturn(MoveEnum.PAPER);
-    when(player2.getMove()).thenReturn(MoveEnum.PAPER).thenThrow(new QuitGameException());;
+    when(player1.getMove()).thenReturn(Move.PAPER);
+    when(player2.getMove()).thenReturn(Move.PAPER).thenThrow(new QuitGameException());;
     GameEngine game = new GameEngine(player1, player2);
     // When
     try {

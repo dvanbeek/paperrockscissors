@@ -15,39 +15,39 @@ class RulesTest {
   @Test
   @DisplayName("Player 1 wins")
   void testPlayer1Wins() {
-    RoundResultEnum result = Rules.evaluateMoves(MoveEnum.PAPER, MoveEnum.ROCK); 
-    assertEquals(RoundResultEnum.PLAYER1_WINS, result);
+    RoundResult result = Rules.evaluateMoves(Move.PAPER, Move.ROCK); 
+    assertEquals(RoundResult.PLAYER1_WINS, result);
 
-    result = Rules.evaluateMoves(MoveEnum.ROCK, MoveEnum.SCISSORS); 
-    assertEquals(RoundResultEnum.PLAYER1_WINS, result);
+    result = Rules.evaluateMoves(Move.ROCK, Move.SCISSORS); 
+    assertEquals(RoundResult.PLAYER1_WINS, result);
 
-    result = Rules.evaluateMoves(MoveEnum.SCISSORS, MoveEnum.PAPER); 
-    assertEquals(RoundResultEnum.PLAYER1_WINS, result);
+    result = Rules.evaluateMoves(Move.SCISSORS, Move.PAPER); 
+    assertEquals(RoundResult.PLAYER1_WINS, result);
   }
 
   @Test
   @DisplayName("Player 2 wins")
   void testPlayer2Wins() {
-    RoundResultEnum result = Rules.evaluateMoves(MoveEnum.PAPER, MoveEnum.SCISSORS); 
-    assertEquals(RoundResultEnum.PLAYER2_WINS, result);
+    RoundResult result = Rules.evaluateMoves(Move.PAPER, Move.SCISSORS); 
+    assertEquals(RoundResult.PLAYER2_WINS, result);
 
-    result = Rules.evaluateMoves(MoveEnum.ROCK, MoveEnum.PAPER); 
-    assertEquals(RoundResultEnum.PLAYER2_WINS, result);
+    result = Rules.evaluateMoves(Move.ROCK, Move.PAPER); 
+    assertEquals(RoundResult.PLAYER2_WINS, result);
 
-    result = Rules.evaluateMoves(MoveEnum.SCISSORS, MoveEnum.ROCK); 
-    assertEquals(RoundResultEnum.PLAYER2_WINS, result);
+    result = Rules.evaluateMoves(Move.SCISSORS, Move.ROCK); 
+    assertEquals(RoundResult.PLAYER2_WINS, result);
   }
 
   @Test
   @DisplayName("A tie")
   void testTie() {
-    RoundResultEnum result = Rules.evaluateMoves(MoveEnum.PAPER, MoveEnum.PAPER); 
-    assertEquals(RoundResultEnum.TIE, result);
+    RoundResult result = Rules.evaluateMoves(Move.PAPER, Move.PAPER); 
+    assertEquals(RoundResult.TIE, result);
 
-    result = Rules.evaluateMoves(MoveEnum.ROCK, MoveEnum.ROCK); 
-    assertEquals(RoundResultEnum.TIE, result);
+    result = Rules.evaluateMoves(Move.ROCK, Move.ROCK); 
+    assertEquals(RoundResult.TIE, result);
 
-    result = Rules.evaluateMoves(MoveEnum.SCISSORS, MoveEnum.SCISSORS); 
-    assertEquals(RoundResultEnum.TIE, result);
+    result = Rules.evaluateMoves(Move.SCISSORS, Move.SCISSORS); 
+    assertEquals(RoundResult.TIE, result);
   }
 }

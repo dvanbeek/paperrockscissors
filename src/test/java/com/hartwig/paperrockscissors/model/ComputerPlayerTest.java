@@ -18,13 +18,13 @@ import org.junit.jupiter.api.Test;
   * - Randomness over multiple calls: Over a large number of calls, ensure that all moves are selected to ensure randomness.
  */
 class ComputerPlayerTest {
-  private final PlayerInterface computerPlayer = new ComputerPlayer();
+  private final Player computerPlayer = new ComputerPlayer();
   private final int NUM_TRIALS = 10000;
 
   @Test
   @DisplayName("Move is not null")
   void testMoveIsNotNull() {
-    MoveEnum move = computerPlayer.getMove();
+    Move move = computerPlayer.getMove();
     assertNotNull(move);
   }
 
@@ -32,19 +32,19 @@ class ComputerPlayerTest {
   @DisplayName("Move is within valid range")
   void testMoveIsWithinValidRange() {
     for (int i = 0; i < NUM_TRIALS; i++) {
-      MoveEnum move = computerPlayer.getMove();
-      assertTrue(Arrays.asList(MoveEnum.values()).contains(move));
+      Move move = computerPlayer.getMove();
+      assertTrue(Arrays.asList(Move.values()).contains(move));
     }
   }
 
   @Test
   @DisplayName("Randomness over multiple calls")
   void testRandomness() {
-    Set<MoveEnum> movesSeen = new HashSet<>();
+    Set<Move> movesSeen = new HashSet<>();
     for (int i = 0; i < NUM_TRIALS; i++) {
-      MoveEnum move = computerPlayer.getMove();
+      Move move = computerPlayer.getMove();
       movesSeen.add(move);
     }
-    assertEquals(MoveEnum.values().length, movesSeen.size(), "Not all moves were chosen by the computer player, which might indicate a lack of randomness.");
+    assertEquals(Move.values().length, movesSeen.size(), "Not all moves were chosen by the computer player, which might indicate a lack of randomness.");
   }
 }

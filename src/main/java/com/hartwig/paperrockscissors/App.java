@@ -6,7 +6,7 @@ import com.hartwig.paperrockscissors.engine.GameControls;
 import com.hartwig.paperrockscissors.engine.GameEngine;
 import com.hartwig.paperrockscissors.model.ComputerPlayer;
 import com.hartwig.paperrockscissors.model.HumanPlayer;
-import com.hartwig.paperrockscissors.model.PlayerInterface;
+import com.hartwig.paperrockscissors.model.Player;
 
 public class App {
   
@@ -20,9 +20,9 @@ public class App {
     Runtime.getRuntime().addShutdownHook(new Thread(gameControls::close));
 
     // Instantiate human player and inject game controls
-    PlayerInterface humanPlayer = new HumanPlayer(gameControls);
+    Player humanPlayer = new HumanPlayer(gameControls);
     // Instatiate computer player
-    PlayerInterface computerPlayer = new ComputerPlayer();
+    Player computerPlayer = new ComputerPlayer();
     // Instantiate game engine and injecting the two players
     GameEngine game = new GameEngine(humanPlayer, computerPlayer);
     game.start();

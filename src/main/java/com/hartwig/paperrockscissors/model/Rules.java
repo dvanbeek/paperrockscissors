@@ -19,21 +19,21 @@ public class Rules {
   * EnumMap with rules for winning combinations
   * Defines which Player 1 Move (key) beats which Player 2 Move (value)
   */
-  private static final Map<MoveEnum, MoveEnum> gameRules = new EnumMap<>(MoveEnum.class);
+  private static final Map<Move, Move> gameRules = new EnumMap<>(Move.class);
 
   static {
-    gameRules.put(MoveEnum.PAPER, MoveEnum.ROCK);
-    gameRules.put(MoveEnum.ROCK, MoveEnum.SCISSORS);
-    gameRules.put(MoveEnum.SCISSORS, MoveEnum.PAPER);
+    gameRules.put(Move.PAPER, Move.ROCK);
+    gameRules.put(Move.ROCK, Move.SCISSORS);
+    gameRules.put(Move.SCISSORS, Move.PAPER);
   }
 
   /**
   * Static method to evaluate moves and determine the winner using the gameRules Map
   * @param player1Move the move of player 1.
   * @param player2Move the move of player 2.
-  * @return RoundResultEnum
+  * @return RoundResult
   */
-  public static final RoundResultEnum evaluateMoves(MoveEnum player1Move, MoveEnum player2Move) {
+  public static final RoundResult evaluateMoves(Move player1Move, Move player2Move) {
     // Safety check to make sure player1Move is a valid move, if not throw InvalidMoveException
     if (gameRules.get(player1Move) == null) {
       throw new InvalidMoveException();
@@ -41,11 +41,11 @@ public class Rules {
     
     // Determine who has won
     if (player1Move.equals(player2Move)) {
-      return RoundResultEnum.TIE;
+      return RoundResult.TIE;
     } else if (gameRules.get(player1Move).equals(player2Move))  {
-      return RoundResultEnum.PLAYER1_WINS;
+      return RoundResult.PLAYER1_WINS;
     } else {
-      return RoundResultEnum.PLAYER2_WINS;
+      return RoundResult.PLAYER2_WINS;
     }
   }
 }

@@ -3,10 +3,10 @@ package com.hartwig.paperrockscissors.model;
 import com.hartwig.paperrockscissors.engine.GameControls;
 
 /**
-* Implements PlayerInterface.getMove() by using GameControls to identify move.
+* Implements Player Interface: getMove() uses GameControls to identify move.
 *
 */
-public class HumanPlayer implements PlayerInterface {
+public class HumanPlayer implements Player {
   private final GameControls gameControls;
 
   public HumanPlayer(GameControls gameControls) {
@@ -14,7 +14,7 @@ public class HumanPlayer implements PlayerInterface {
   }
 
   @Override
-  public MoveEnum getMove() {
+  public Move getMove() {
     return gameControls.getPlayerMove();
   }
 }
