@@ -3,7 +3,7 @@ package com.hartwig.paperrockscissors.model;
 import com.hartwig.paperrockscissors.engine.GameControls;
 
 /**
-* Human Player using GameControls to identify move
+* Implements PlayerInterface.getMove() by using GameControls to identify move.
 *
 */
 public class HumanPlayer implements PlayerInterface {

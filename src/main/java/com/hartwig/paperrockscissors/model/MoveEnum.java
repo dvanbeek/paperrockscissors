@@ -7,7 +7,10 @@ import java.util.Map;
 import com.hartwig.paperrockscissors.exceptions.InvalidMoveException;
 
 /**
-* ... 
+* Enumerates the possible moves (currently PAPER, ROCK, SCISSORS, but extendible) 
+* Defines private static unmodifiable map of string representations to corresponding MoveEnum constants.
+* Provides method enumConstantFromCharacter that converts input string to lowercase and looks up input in Map of MoveEnum constants
+* Provides method getNumberOfMoveOptions that returns the total number of possible moves.
 *
 */
 public enum MoveEnum {

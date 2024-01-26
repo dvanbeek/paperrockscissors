@@ -6,7 +6,7 @@ import java.util.Map;
 import com.hartwig.paperrockscissors.exceptions.InvalidMoveException;
 
 /**
-* ... 
+* Contains a Map of rules (what beats what) and a static method to return the result based on the moves of 2 players
 *
 */
 public class Rules {

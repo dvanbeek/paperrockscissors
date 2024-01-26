@@ -29,7 +29,7 @@ public class GameEngine {
 
 	/**
  	* Main start method of game engine
-	* Consists of a while loop that ise exited upon receiving a QuitGameException
+	* Consists of a while loop that is exited upon receiving a QuitGameException from GameControls.
  	*/
 	public void start() {
 		final String DIVIDER_LINE = "-------------------------------";

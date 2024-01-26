@@ -6,7 +6,7 @@ public class ComputerPlayer implements PlayerInterface {
 	private static final Random RANDOM_NUMBER_GENERATOR = new Random();
 
   /**
- 	* Generates random computer move from the available options defined in MoveEnum
+ 	* Implements PlayerInterface.getMove() by generating random computer move from the available options defined in MoveEnum.
  	*
   * @return MoveEnum
  	*/
